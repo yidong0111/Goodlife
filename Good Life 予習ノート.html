@@ -1,0 +1,1530 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Good Life 予習ノート</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Layout: a study sheet. In chunk view each sentence is a row of meaning chunks —
+   English on top, a Japanese gloss underneath, in English word order. Plain view is English only. */
+:root {
+  --paper: #F3F5F6;
+  --surface: #FFFFFF;
+  --ink: #141C28;
+  --ink-2: #4B5769;
+  --ink-3: #848FA0;
+  --rule: #DCE1E7;
+  --accent: #2447C9;
+  --accent-soft: #E3E8FA;
+  --gloss: #FFF3C4;
+  --gloss-ink: #5A4300;
+  --spk1: #0C7A72;
+  --spk2: #8A3FA0;
+  --shadow: 0 10px 34px rgba(20, 28, 40, .16);
+  --f-read: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-ui: "IBM Plex Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --en-size: 1.15rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1319; --surface: #151C25; --ink: #E7EBF1; --ink-2: #A5B0BF; --ink-3: #6E798A; --rule: #253041;
+    --accent: #8CA3FF; --accent-soft: #1C284A;
+    --gloss: #3A3110; --gloss-ink: #FBE7A1; --spk1: #4CC2B6; --spk2: #CB97DE;
+    --shadow: 0 10px 34px rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1319; --surface: #151C25; --ink: #E7EBF1; --ink-2: #A5B0BF; --ink-3: #6E798A; --rule: #253041;
+  --accent: #8CA3FF; --accent-soft: #1C284A;
+  --gloss: #3A3110; --gloss-ink: #FBE7A1; --spk1: #4CC2B6; --spk2: #CB97DE;
+  --shadow: 0 10px 34px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-ui); font-size: .9375rem; line-height: 1.65; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 40; background: var(--surface); }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.wrap {
+  max-width: 820px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* header */
+.head { padding-block: 32px 22px; display: grid; gap: 10px; }
+.eyebrow { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em; color: var(--ink-3); }
+h1 { margin: 0; font-family: var(--f-read); font-weight: 500; font-size: 2.1rem; line-height: 1.15; text-wrap: balance; letter-spacing: -.01em; }
+@media (max-width: 520px) { h1 { font-size: 1.7rem; } }
+.lead { margin: 0; color: var(--ink-2); max-width: 62ch; }
+.people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px; }
+@media (max-width: 560px) { .people { grid-template-columns: minmax(0, 1fr); } }
+.person { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 10px; align-items: baseline; padding: 12px 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+.person b { font-family: var(--f-read); font-weight: 500; font-size: 1.05rem; }
+.person span.role { grid-column: 2; font-size: .8125rem; color: var(--ink-2); }
+.spk { font-family: var(--f-mono); font-size: .75rem; font-weight: 500; letter-spacing: .06em; padding: 0 6px; border-radius: 4px; border: 1px solid currentColor; line-height: 1.6; }
+.spk.ws { color: var(--spk1); } .spk.as { color: var(--spk2); }
+
+.howto { margin: 6px 0 0; padding: 14px 16px; border-radius: 10px; background: var(--accent-soft); display: grid; gap: 8px; }
+.howto h2 { margin: 0; font-size: .9375rem; font-weight: 600; }
+.howto ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; font-size: .875rem; }
+
+/* toolbar */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--surface); border-bottom: 1px solid var(--rule);
+}
+.bar-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding-block: 10px; }
+.seg { display: inline-flex; flex-wrap: wrap; background: var(--paper); border: 1px solid var(--rule); border-radius: 9px; padding: 3px; gap: 2px; }
+.seg button { border: 0; background: none; padding: 5px 12px; border-radius: 6px; font-size: .875rem; color: var(--ink-2); white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); font-weight: 500; }
+.seg button small { font-family: var(--f-mono); font-size: .6875rem; opacity: .75; margin-left: 4px; }
+.switch { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rule); background: var(--paper); border-radius: 9px; padding: 6px 12px; font-size: .875rem; }
+.switch[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.switch .dot { width: 26px; height: 15px; border-radius: 8px; background: var(--rule); position: relative; flex: none; }
+.switch .dot::after { content: ""; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px; border-radius: 50%; background: var(--surface); transition: transform .15s; }
+.switch[aria-pressed="true"] .dot { background: var(--accent); }
+.switch[aria-pressed="true"] .dot::after { transform: translateX(11px); }
+.partnav { display: inline-flex; align-items: center; gap: 4px; }
+.partnav select { font: inherit; font-size: .875rem; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); border-radius: 9px; padding: 6px 8px; max-width: 13.5rem; }
+.pn-btn { width: 32px; height: 32px; border: 1px solid var(--rule); background: var(--paper); border-radius: 8px; font-size: 1.15rem; line-height: 1; color: var(--ink-2); display: grid; place-items: center; padding: 0; }
+.pn-btn:disabled { opacity: .35; cursor: default; }
+.btn-next { justify-self: start; border: 1px solid var(--accent); color: var(--accent); background: var(--surface); border-radius: 10px; padding: 10px 16px; font-size: .9375rem; margin-top: 6px; }
+.btn-next:hover { background: var(--accent-soft); }
+.small-btn { border: 0; background: none; padding: 4px 2px; font-size: .8125rem; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* paragraphs */
+main { padding-block: 8px 40px; }
+.part-title { margin: 26px 0 0; font-family: var(--f-mono); font-size: .8125rem; letter-spacing: .06em; color: var(--ink-3); font-weight: 400; }
+.para { padding-block: 28px; border-bottom: 1px solid var(--rule); display: grid; gap: 16px; }
+.para-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ts { font-family: var(--f-mono); font-size: .8125rem; color: var(--ink-3); }
+.gist { margin: 0; font-size: .9375rem; color: var(--ink); padding-left: 12px; border-left: 3px solid var(--accent); max-width: 64ch; }
+.gist small { display: block; font-size: .75rem; color: var(--ink-3); letter-spacing: .06em; }
+
+.sents { display: grid; gap: 18px; }
+.sent { display: grid; gap: 6px; }
+.chunks { display: flex; flex-wrap: wrap; row-gap: 10px; }
+.ck {
+  display: inline-flex; flex-direction: column; gap: 2px; max-width: 100%; min-width: 0;
+  padding: 2px 12px 2px 0; margin-right: 10px; border-right: 1px solid var(--rule);
+}
+.ck:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+.ck .en { font-family: var(--f-read); font-size: var(--en-size); line-height: 1.4; color: var(--ink); }
+.ck .ja { font-size: .8125rem; line-height: 1.45; color: var(--ink-2); }
+body.hide-ja .ck { cursor: pointer; }
+body.hide-ja .ck .ja { color: transparent; background: var(--paper); border-radius: 3px; user-select: none; -webkit-user-select: none; }
+body.hide-ja .ck:hover .ja { background: var(--accent-soft); }
+body.hide-ja .ck.open .ja { color: var(--ink-2); background: none; user-select: auto; -webkit-user-select: auto; }
+.term { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 4px; cursor: pointer; border-radius: 2px; }
+.term:hover { background: var(--accent-soft); }
+.note { margin: 0; font-size: .8125rem; color: var(--gloss-ink); background: var(--gloss); border-radius: 6px; padding: 7px 10px; max-width: 66ch; }
+.note b { font-weight: 600; }
+
+.plain { margin: 0; font-family: var(--f-read); font-size: 1.25rem; line-height: 1.8; max-width: 66ch; }
+
+.terms { display: grid; gap: 8px; }
+.terms-box .term-list { padding: 0 14px 12px; }
+.term-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 18px; }
+@media (max-width: 600px) { .term-list { grid-template-columns: minmax(0, 1fr); } }
+.term-item { display: grid; gap: 2px; padding: 7px 0; border-bottom: 1px dashed var(--rule); }
+.term-item .t { font-family: var(--f-read); font-size: 1.05rem; font-weight: 500; }
+.term-item .m { font-size: .8125rem; color: var(--ink-2); }
+
+details.tr { border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+details.tr summary { cursor: pointer; padding: 10px 14px; font-size: .875rem; color: var(--ink-2); list-style: none; display: flex; align-items: center; gap: 8px; }
+details.tr summary::-webkit-details-marker { display: none; }
+details.tr summary::before { content: "+"; font-family: var(--f-mono); color: var(--accent); width: 1em; }
+details.tr[open] summary::before { content: "−"; }
+details.tr p { margin: 0; padding: 0 14px 14px; font-size: .9375rem; line-height: 1.85; max-width: 66ch; }
+
+.next { padding-block: 30px 60px; display: grid; gap: 8px; }
+.next h2 { margin: 0; font-family: var(--f-read); font-weight: 500; font-size: 1.4rem; }
+.next p { font-size: .9375rem; max-width: 64ch; margin: 0; }
+.credit { font-size: .75rem; color: var(--ink-3); margin-top: 18px !important; }
+
+/* term popover */
+.pop {
+  position: fixed; left: 50%; transform: translateX(-50%); z-index: 50;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  width: min(460px, calc(100% - 32px));
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow);
+  padding: 14px 16px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px;
+}
+.pop .t { font-family: var(--f-read); font-size: 1.2rem; font-weight: 500; }
+.pop .m { grid-column: 1; font-size: .875rem; color: var(--ink-2); }
+.pop .x { grid-row: 1 / span 2; grid-column: 2; align-self: start; border: 0; background: none; font-size: 1.2rem; line-height: 1; color: var(--ink-3); padding: 4px; }
+@media (prefers-reduced-motion: reduce) { .switch .dot::after { transition: none; } }
+</style>
+
+<div class="wrap head">
+  <div class="eyebrow">TED · 予習ノート</div>
+  <h1>What makes a good life?</h1>
+  <p class="lead">神経科学者と金融機関のCEOの対談を、約3分ずつのパートに分けて予習します。かたまり読みでは、意味のかたまりごとに英語の語順のまま日本語を添えています。</p>
+  <div class="people">
+    <div class="person"><span class="spk ws">WS</span><b>Wendy Suzuki</b><span class="role">ニューヨーク大学 神経科学・心理学の教授</span></div>
+    <div class="person"><span class="spk as">AS</span><b>Annabel Spring</b><span class="role">HSBC グローバル・プライベートバンキング＆ウェルス部門 CEO</span></div>
+  </div>
+  <div class="howto">
+    <h2>読み方</h2>
+    <ol>
+      <li><b>かたまり読み</b>で、段落の要旨にさっと目を通す。語句の一覧は「語句」を開くと見られます。</li>
+      <li>左から「英語 → 下の日本語」の順に読む。英語に戻って読み直さない。下線の語句はタップすると意味が出ます。</li>
+      <li><b>日本語を隠す</b>をオンにして、英語だけで意味が取れるか確かめる。詰まったかたまりだけタップして確認する。</li>
+      <li><b>通し読み</b>（英文だけ）で、区切りのない英文を前から読む。詰まったらかたまり読みに戻る。</li>
+    </ol>
+  </div>
+</div>
+
+<div class="bar">
+  <div class="wrap bar-in">
+    <div class="partnav" role="group" aria-label="パート">
+      <button type="button" class="pn-btn" data-step="-1" id="pnPrev" aria-label="前のパート">‹</button>
+      <select id="partSel" aria-label="パートを選ぶ"></select>
+      <button type="button" class="pn-btn" data-step="1" id="pnNext" aria-label="次のパート">›</button>
+    </div>
+    <div class="seg" role="group" aria-label="表示">
+      <button type="button" data-view="chunk" aria-pressed="true">かたまり読み</button>
+      <button type="button" data-view="plain" aria-pressed="false">通し読み</button>
+    </div>
+    <button type="button" class="switch" id="hideJa" aria-pressed="false"><span class="dot" aria-hidden="true"></span>日本語を隠す</button>
+    <button type="button" class="small-btn" id="closeAll" hidden>開いた日本語を閉じる</button>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<div class="wrap">
+  <section class="next">
+    <h2>このあと</h2>
+    <p id="nextText"></p>
+    <button type="button" class="btn-next" id="nextPart" data-step="1" hidden></button>
+    <p class="credit">出典：TED「What makes a good life? A neuroscientist and a global financial CEO answer」Wendy Suzuki, Annabel Spring。スクリプトはご提供いただいたものを使用した個人学習用のノートです。</p>
+  </section>
+</div>
+
+<div class="pop" id="pop" role="status" hidden>
+  <span class="t" id="popT"></span>
+  <span class="m" id="popM"></span>
+  <button type="button" class="x" id="popX" aria-label="閉じる">×</button>
+</div>
+
+<script>
+(function () {
+'use strict';
+
+/* ---------- content ---------- */
+const PARTS = [
+  {
+    label: 'パート1', range: '00:38–04:00',
+    paras: [
+      {
+        ts: '00:38', spk: 'WS',
+        gist: '脳の研究には生涯をかけてきたが、自分のお金のことはおろそかにしてきた。銀行の専門家から、不安を減らす秘訣を聞けるのが楽しみ。',
+        sents: [
+          { ck: [['So can I tell you', 'ちょっと言わせてください'], ['why I was so excited', 'なぜ私がとても楽しみにしていたか'], ['to be able to talk to you today?', '今日あなたとお話しできることを']] },
+          { ck: [['And that is that,', 'それはつまりこういうことです'], ['as a neuroscientist,', '神経科学者として'], ["I've spent my whole career", '私はキャリアのすべてを費やしてきた'], ['studying the brain', '脳を研究することに'], ['and what works.', 'そして何が効果があるのかを']],
+            note: '<b>And that is that,</b> は「理由はこうです」という前置き。直前の why に答えています。' },
+          { ck: [['But by contrast,', 'でもその一方で'], ["I've ignored certain aspects", '私はいくつかの面をおろそかにしてきた'], ['of my own financial well-being.', '自分自身のお金の健全さの']] },
+          { ck: [['And now I get to sit down', 'そして今、じっくり話す機会をもらった'], ['with a global banking expert,', '世界的な銀行の専門家と'], ['and I know', 'そしてきっと'], ["you're going to reveal secrets", 'あなたが秘訣を明かしてくれる'], ['that I will be able to decrease my own anxiety.', '私が自分の不安を減らせるような']],
+            note: '最後の <b>secrets that I will be able to decrease my own anxiety</b> は、文法的には崩れた話し言葉です。secrets that will help me decrease my anxiety（不安を減らすのに役立つ秘訣）の意味で取り、細部にこだわらず先に進みます。' },
+        ],
+        terms: [
+          { t: 'neuroscientist', m: '神経科学者', re: 'neuroscientist' },
+          { t: 'by contrast', m: 'それとは対照的に、その一方で', re: 'by contrast' },
+          { t: 'financial well-being', m: 'お金の面での健全さ・安心', re: 'financial well-being' },
+          { t: 'get to (do)', m: '〜する機会に恵まれる（うれしさがにじむ言い方）', re: 'get to' },
+          { t: 'sit down with', m: '〜とじっくり話をする', re: 'sit down' },
+          { t: 'reveal', m: '（秘密などを）明かす', re: 'reveal' },
+        ],
+        ja: '今日お話しできるのを、なぜこんなに楽しみにしていたかお話ししてもいいですか。神経科学者として、私はキャリアのすべてを、脳の研究と、何が効果的なのかを探ることに費やしてきました。でもその一方で、自分自身のお金のことについては、いくつかの面をおろそかにしてきたんです。そして今、世界的な銀行の専門家とじっくりお話しできる。私の不安を減らしてくれる秘訣を、きっと教えてもらえると思っています。',
+      },
+      {
+        ts: '01:16', spk: 'AS',
+        gist: 'お金の不安をどう乗り越えて、実際にお金のことに向き合えるようにするか。それをぜひ話したい。',
+        sents: [
+          { ck: [['Well,', 'そうですね'], ["that's a conversation", 'それは話し合いです'], ['we should definitely have', '私たちがぜひするべき'], ['because personal finance', 'なぜなら個人のお金の管理は'], ['is very, very important.', 'とても大切だから']] },
+          { ck: [['And what I would love to hear you talk about', 'そしてあなたにぜひ話してほしいのは'], ['is a little bit about', '少し〜についてです'], ['how do we get people over that anxiety', 'どうすれば人々にその不安を乗り越えさせられるか'], ['to actually address their financial services.', '実際に自分のお金の問題に向き合えるように']],
+            note: '<b>what I would love to hear you talk about</b> までが長い主語「私があなたに話してほしいのは」。is の後に中身が来ます。<b>how do we get…</b> は本来 how we get…（間接疑問）ですが、話し言葉では疑問文の語順のまま言うことがよくあります。' },
+          { ck: [['And I think', 'そして私は思います'], ["that's really important.", 'それは本当に大切だと']] },
+          { ck: [['So very, very curious', 'だから本当に楽しみです'], ['to have this conversation.', 'この対話をするのが']],
+            note: '文頭の I\'m が省略された話し言葉です（I\'m very, very curious…）。' },
+        ],
+        terms: [
+          { t: 'personal finance', m: '個人のお金の管理（家計や資産運用など）', re: 'personal finance' },
+          { t: 'get A over B', m: 'AにBを乗り越えさせる', re: 'get people over' },
+          { t: 'address', m: '（問題などに）向き合う、取り組む', re: 'address' },
+          { t: 'financial services', m: '金融サービス（ここでは「自分のお金に関わること全般」）', re: 'financial services' },
+          { t: 'curious to (do)', m: 'ぜひ〜したい、〜するのが楽しみだ', re: 'curious' },
+        ],
+        ja: 'そうですね、それはぜひするべき話です。個人のお金の管理はとても大切ですから。私があなたにぜひ話してほしいのは、どうすれば人々がその不安を乗り越えて、実際に自分のお金の問題に向き合えるようになるか、ということです。それは本当に大切なことだと思います。ですから、この対談をとても楽しみにしています。',
+      },
+      {
+        ts: '01:33', spk: 'WS',
+        gist: 'あいづち。',
+        sents: [
+          { ck: [['OK, great.', 'ええ、いいですね']] },
+        ],
+        terms: [],
+        ja: 'ええ、いいですね。',
+      },
+      {
+        ts: '01:34', spk: 'AS',
+        gist: '金融の仕事は人を助けるためのもの。お金の話だけでなく、体・心・人とのつながりなど「その人全体」を理解する必要があり、それは鈴木さんの研究分野と重なる。',
+        sents: [
+          { ck: [["But I'm curious to talk to you as well,", 'でも私もあなたとぜひ話したかった'], ['because I went into financial services', 'なぜなら私が金融業界に入ったのは'], ['to look after people', '人の役に立つため'], ['and to care for people.', 'そして人を大切にするためだから']] },
+          { ck: [['My passion', '私の情熱は'], ['is actually about people.', '実は人に向いている']] },
+          { ck: [['And I went into financial services', 'そして私は金融業界に入った'], ['at first thinking,', '最初はこう考えて'], ['you know,', 'ほら'], ['this is how we help people', 'これこそ人を助けるやり方だと'], ['achieve their hopes and their dreams and their ambitions', '希望や夢や大志をかなえるのを'], ['and also look after their families and their legacies.', 'そして家族や後に遺すものを守るのを']],
+            note: '<b>at first thinking, …</b> は「最初は〜と考えて」。考えた内容を、頭の中の声のようにそのまま続けています。<b>this is how we help people (to) achieve…</b> は「これが、人々が〜をかなえるのを助けるやり方だ」。' },
+          { ck: [["But what I've learned in financial services", 'でも金融業界で学んだのは'], ["is you can't just talk to people", '人とただ話すだけではだめだということ'], ['about their finances.', 'その人のお金のことについて']],
+            note: '<b>what I\'ve learned … is (that) you can\'t…</b> で、is の後の that が省略されています。<b>can\'t just</b> は「ただ〜するだけではだめ」。' },
+          { ck: [['You actually have to understand', '実際には理解しなければならない'], ['the whole person.', 'その人全体を']] },
+          { ck: [['And a lot of that', 'そしてその多くは'], ['is the work that you do,', 'あなたが研究していることです'], ["whether it's physical fitness", '体の健康であれ'], ['or mental wellness', '心の健康であれ'], ['or social connectedness', '人とのつながりであれ'], ['or belonging.', '居場所の感覚であれ']],
+            note: '<b>whether it\'s A or B</b> は「AであれBであれ」。the work that you do は「あなたの研究分野」。' },
+          { ck: [['You know,', 'ほら'], ['understanding people', '人を理解することは'], ['in the light of their communities', 'その人の属するコミュニティを踏まえて'], ['and their personal passions', 'そしてその人が情熱を注ぐものを踏まえて'], ['is a huge part of my role', '私の役割の大きな部分であり'], ['but also a huge part of my personal interest.', 'でも私個人の関心の大きな部分でもある']],
+            note: '<b>understanding people … passions</b> までが長い主語です。is が出てくるまでを「〜を理解することは」とひとかたまりで持って読みます。' },
+          { ck: [["So I'm excited to be here.", 'だからここに来られてうれしいです']] },
+        ],
+        terms: [
+          { t: 'go into', m: '（業界・職業に）入る', re: 'went into' },
+          { t: 'look after', m: '〜の面倒を見る、守る', re: 'look after' },
+          { t: 'care for', m: '〜を大切にする、気にかける', re: 'care for' },
+          { t: 'ambition', m: '大志、目指していること', re: 'ambitions' },
+          { t: 'legacy', m: '後に遺すもの（財産、家業、生き方など）', re: 'legacies' },
+          { t: 'the whole person', m: 'その人全体（暮らしや価値観まで含めて）', re: 'the whole person' },
+          { t: 'mental wellness', m: '心の健康', re: 'mental wellness' },
+          { t: 'social connectedness', m: '人とのつながり', re: 'social connectedness' },
+          { t: 'belonging', m: '居場所の感覚、帰属感', re: 'belonging' },
+          { t: 'in the light of', m: '〜を踏まえて、〜に照らして', re: 'in the light of' },
+        ],
+        ja: 'でも、私もあなたとぜひお話ししたかったんです。私が金融業界に入ったのは、人の役に立ち、人を大切にしたかったからです。私の情熱は、実は「人」に向いているんです。最初は、金融こそが、人々が希望や夢や大志をかなえ、家族や後に遺すものを守る手助けになると考えて、この業界に入りました。でも金融の仕事を通じて学んだのは、お金の話だけをしていてはだめだということです。その人全体を理解しなければならない。そしてその多くは、体の健康、心の健康、人とのつながり、居場所の感覚といった、あなたが研究していることなんです。人を、その人が属するコミュニティや個人的な情熱を踏まえて理解することは、私の役割の大きな部分であり、個人的な関心の大きな部分でもあります。ですから、今日ここに来られてうれしいです。',
+      },
+      {
+        ts: '02:22', spk: 'WS',
+        gist: '良い人生とは、情熱を注げる目標を持つこと。そこに至るには、お金の余裕に加えて、ストレスの調整や喜びに気づく力が要る。それが自分の研究テーマ。',
+        sents: [
+          { ck: [['Absolutely, absolutely.', 'まったくそのとおりです']] },
+          { ck: [['I mean,', 'つまり'], ['I think', '私が思うに'], ['we both have really unique perspectives', '私たちはどちらも、とても独自の視点を持っている'], ['on what makes life worth living.', '何が人生を生きる価値のあるものにするかについて']] },
+          { ck: [['I think', '私が思うに'], ['what makes a good life', '良い人生をつくるのは'], ['is having something that you do', '自分がする何かを持つことだ'], ['that you are just passionate about', 'とにかく情熱を感じられて'], ['and that you really want to give yourself to.', '本当に打ち込みたいと思える']],
+            note: 'something に that 節が3つかかっています（自分がやっていて／情熱を感じて／打ち込みたい）。前から順に説明が足されていくと考えて読みます。' },
+          { ck: [["It doesn't have to be", 'それは〜でなくてもいい'], ['what you do for a living.', '仕事としてやっていること']] },
+          { ck: [['It could be giving to the community,', '地域に尽くすことでもいい'], ['giving to your own family.', '自分の家族に尽くすことでも']] },
+          { ck: [['That goal is so important,', 'その目標がとても大切で'], ['and we know', 'そしてわかっているのは'], ['that that kind of aspiration', 'そういう志と'], ['and the awe', 'そして感動'], ['that it inspires in you', 'それがあなたの心に呼び起こす'], ['as you think about that,', 'それについて考えるときに'], ['that is releasing dopamine', 'それがドーパミンを出している'], ['in your brain.', 'あなたの脳の中で']],
+            note: '<b>that kind of aspiration and the awe …</b> という長い主語を言い終えたあと、<b>that is releasing…</b> と「それが」で言い直しています。話し言葉によくある形です。' },
+          { ck: [['That is what brings a lot of happiness.', 'それこそが大きな幸せをもたらすものです']] },
+          { ck: [['Now how do you get there?', 'では、どうすればそこにたどり着けるか']] },
+          { ck: [['There is a long road to that', 'そこまでには長い道のりがある'], ['that includes', 'それには〜が含まれる'], ['you have to be financially able to do that,', 'お金の面でそれができる状態であること'], ['but it also includes', 'でもそれには〜も含まれる'], ['knowing how to regulate your stress levels', 'ストレスの度合いを調整する方法を知ること'], ['and deal with the increasing levels of stress and anxiety', 'そして増えていくストレスや不安に対処すること'], ['in our society today.', '今の社会で']],
+            note: '1つ目の that は「そこ（良い人生）」、2つ目の that は「〜を含む（道のり）」という関係代名詞です。includes の後に文がそのまま続くのは話し言葉の崩れなので、「〜ということが含まれる」と取ります。' },
+          { ck: [['But also to catch on to those things', 'そしてさらに、そうしたものに気づくこと'], ['that bring joy in your life.', '人生に喜びをもたらす']],
+            note: '前の文の続きです。「〜も含まれる。そして〜に気づくことも」と、文の外に付け足しています。' },
+          { ck: [['And I feel like', 'そして〜と感じています'], ["that's what I've come to study", 'それこそ私が研究するようになったことだと'], ['as a neuroscientist.', '神経科学者として']] },
+          { ck: [['That is,', 'つまり'], ['how to maximize joy', '喜びを最大限に高める方法'], ['and those positive emotions', 'そうした前向きな感情を'], ['and how to better regulate the difficult emotions', 'そして難しい感情をうまく調整する方法'], ['and use them as signposts', 'そしてそれを道しるべとして使う方法'], ['towards what you should be paying attention to.', '自分が注意を向けるべきものへの']],
+            note: '<b>That is,</b> は「つまり」。前の文の what I\'ve come to study の中身を説明しています。' },
+        ],
+        terms: [
+          { t: 'perspective on', m: '〜についての視点、ものの見方', re: 'perspectives' },
+          { t: 'worth living', m: '生きる価値がある', re: 'worth living' },
+          { t: 'passionate about', m: '〜に情熱を持っている、夢中になっている', re: 'passionate about' },
+          { t: 'give yourself to', m: '〜に打ち込む、身をささげる', re: 'give yourself to' },
+          { t: 'for a living', m: '仕事として、生計を立てるために', re: 'for a living' },
+          { t: 'aspiration', m: '志、強い願い', re: 'aspiration' },
+          { t: 'awe', m: '心を打たれる感覚、畏敬の念', re: 'awe' },
+          { t: 'inspire A in B', m: 'Bの心にAを呼び起こす', re: 'inspires in you' },
+          { t: 'release dopamine', m: 'ドーパミン（意欲や快感に関わる脳内物質）を放出する', re: 'releasing dopamine' },
+          { t: 'regulate', m: '調整する、うまくコントロールする', re: 'regulate' },
+          { t: 'deal with', m: '〜に対処する', re: 'deal with' },
+          { t: 'catch on to', m: '〜に気づく、〜をつかむ', re: 'catch on to' },
+          { t: 'come to (do)', m: '（だんだん）〜するようになる', re: 'come to study' },
+          { t: 'signpost', m: '道しるべ、目印', re: 'signposts' },
+        ],
+        ja: 'まったくそのとおりです。私たちはふたりとも、何が人生を生きる価値のあるものにするのかについて、とても独自の視点を持っていると思います。良い人生とは、心から情熱を感じ、本気で打ち込みたいと思える何かを持っていることだと思います。それは仕事でなくてもかまいません。地域に尽くすことでも、自分の家族に尽くすことでもいい。その目標がとても大切なんです。そういう志や、それについて考えるときに心に湧き上がる感動が、脳の中でドーパミンを放出させていることがわかっています。それが大きな幸せをもたらすんです。では、どうすればそこにたどり着けるのか。そこまでには長い道のりがあります。お金の面でそれができる状態であることも必要ですが、ストレスの度合いを調整する方法や、今の社会で増え続けるストレスや不安に対処する方法を知ることも含まれます。そして、人生に喜びをもたらすものに気づくことも。それこそ、私が神経科学者として研究するようになったことだと感じています。つまり、喜びや前向きな感情をどう最大限に高めるか、そして難しい感情をどううまく調整し、自分が注意を向けるべきものへの道しるべとして使うか、ということです。',
+      },
+    ],
+  },
+  {
+    label: 'パート2', range: '04:00–07:50',
+    paras: [
+      {
+        ts: '04:00', spk: 'AS',
+        gist: '銀行員として、最初は所得やGDPなどの数字で良い人生を考えた。だが会社として答えが出せず、1万1000人に聞いたところ、体の健康・心の健康・お金の健全さの3つが挙がった。',
+        sents: [
+          { ck: [['You know,', 'ほら'], ["it's so different.", '（私の場合は）まったく違うんです']] },
+          { ck: [['As a banker,', '銀行員として'], ['when I started to think, you know, what is a good life,', '「良い人生とは何か」を考え始めたとき'], ['you might expect, and I did,', 'ご想像のとおり、実際そうでしたが'], ['my first thought was,', '最初に浮かんだのは'], ['OK, consumption levels, income levels,', 'よし、消費水準、所得水準'], ['you know, GDP per capita, living standards', 'それに一人当たりGDP、生活水準'], ['and all of those thoughts.', 'そういった考えばかりでした']],
+            note: '<b>you might expect, and I did,</b> は挟み込まれた一言で、「（銀行員なら）そう思うでしょうし、実際私もそうでしたが」。<b>what is a good life</b> は、考えた問いをそのまま疑問文の語順で言っています。' },
+          { ck: [['But then I did turn', 'でもそのあと、実際に向かったんです'], ['to where you are,', 'あなたのいる立場へ'], ["which is, it's more subjective.", 'つまり、もっと主観的なものだということ']],
+            note: '<b>I did turn</b> の did は強調で「実際に〜した」。<b>where you are</b> は「あなたの立場・考え方」です。' },
+          { ck: [['And we found,', 'そしてわかったのは'], ['as a firm,', '会社として'], ["we actually couldn't answer that question.", '実はその問いに答えられないということでした']] },
+          { ck: [['So what do you do', 'ではどうするか'], ["if you can't answer that question?", 'その問いに答えられないなら']] },
+          { ck: [['You go out', '外に出て'], ['and ask a bunch of people.', 'たくさんの人に聞くんです']] },
+          { ck: [['So we asked 11,000 people,', 'そこで1万1000人に聞きました'], ['how do they look at quality of life?', '生活の質をどう捉えているか']],
+            note: '<b>how do they look at…</b> は本来 how they look at…（間接疑問）ですが、聞いた質問をそのまま疑問文の語順で言っています。' },
+          { ck: [['What is quality of life', '生活の質とは何か'], ['for them?', 'その人たちにとって']] },
+          { ck: [['And they came back', 'そして返ってきたのが'], ['with their top three factors.', '上位3つの要素でした']] },
+          { ck: [['And I think', 'そして思うのですが'], ["they'll accord a lot", 'それは大いに一致するでしょう'], ['with the work that you do.', 'あなたの研究と']] },
+          { ck: [['You know,', 'ほら'], ['one is physical health,', '1つは体の健康'], ['another is mental wellness.', 'もう1つは心の健康']] },
+          { ck: [['And the third', 'そして3つ目は'], ['is financial fitness.', 'お金の健全さです']] },
+          { ck: [['And those components are critical', 'そしてそれらの要素は欠かせない'], ['to what makes a good life.', '良い人生をつくるものにとって']] },
+          { ck: [['And now', 'そして今や'], ["they're obviously correlated.", 'それらは明らかに相関しています']] },
+        ],
+        terms: [
+          { t: 'GDP per capita', m: '一人当たりGDP', re: 'GDP per capita' },
+          { t: 'living standards', m: '生活水準', re: 'living standards' },
+          { t: 'subjective', m: '主観的な', re: 'subjective' },
+          { t: 'as a firm', m: '会社として', re: 'as a firm' },
+          { t: 'a bunch of', m: 'たくさんの（口語）', re: 'a bunch of' },
+          { t: 'quality of life', m: '生活の質', re: 'quality of life' },
+          { t: 'come back with', m: '（答えなどを）返してくる', re: 'came back' },
+          { t: 'accord with', m: '〜と一致する（少し硬い言い方）', re: 'accord' },
+          { t: 'financial fitness', m: 'お金の健全さ（家計に余裕や備えがある状態）', re: 'financial fitness' },
+          { t: 'critical to', m: '〜にとって欠かせない', re: 'critical' },
+          { t: 'correlated', m: '相関がある、互いに関係している', re: 'correlated' },
+        ],
+        ja: '私の場合はまったく違うんです。銀行員として「良い人生とは何か」を考え始めたとき、ご想像のとおり、実際そうだったのですが、最初に浮かんだのは消費水準や所得水準、一人当たりGDP、生活水準といったことばかりでした。でもそのあと、あなたの考え方のほうに向かいました。つまり、良い人生とはもっと主観的なものだということです。そして会社として、実はその問いに答えられないことがわかりました。答えられないならどうするか。外に出て、たくさんの人に聞くんです。そこで1万1000人に、生活の質をどう捉えているか、その人たちにとって生活の質とは何かを聞きました。返ってきたのは上位3つの要素で、あなたの研究と大いに重なると思います。1つは体の健康、もう1つは心の健康、そして3つ目がお金の健全さです。これらの要素は良い人生に欠かせないもので、しかも明らかに互いに関係しています。',
+      },
+      {
+        ts: '04:53', spk: 'AS',
+        gist: 'お金の面で健全な人ほど、生活の質の実感も、体と心の健康も高い。自分自身にとっての幸せは、散歩や家族・友人との会話、仕事や地域で役割を果たしていること。',
+        sents: [
+          { ck: [['So what we saw is', 'わかったのは'], ['for people who are financially fit,', 'お金の面で健全な人たちは'], ['you know,', 'ほら'], ['they have significantly higher,', 'はるかに高い'], ['30 percent higher,', '30%も高い'], ['perception of their quality of life.', '生活の質についての実感が']],
+            note: '<b>for people who are financially fit</b> で「〜な人たちについて言えば」と話題を出し、<b>they</b> で受け直しています。<b>higher, 30 percent higher,</b> は higher を言い直して数字を足したものです。' },
+          { ck: [['They’re 20 percent more likely', '20%高い確率で'], ['to be physically fit.', '体も健康です']] },
+          { ck: [['And they’re twice as likely', 'そして2倍の確率で'], ['to be above the standard', '基準を上回っている'], ['or above the average', 'つまり平均を上回っている'], ['of mental wellness.', '心の健康の']],
+            note: '<b>be 20 percent more likely to…</b>「〜である確率が20%高い」、<b>be twice as likely to…</b>「〜である確率が2倍」。調査結果を言うときの定番の形です。' },
+          { ck: [['So you can see', 'ですからわかりますよね'], ['that correlation.', 'その相関が']] },
+          { ck: [['And sitting back', 'そして一歩引いて考えると'], ['even as a banker,', '銀行員としてさえ'], ['but certainly I thought,', 'でも確かに思ったんです'], ['gosh, what makes me happy?', 'さて、私を幸せにするものは何だろう、と']],
+            note: '話しながら構文が変わっています。言いたいのは「銀行員の私も一歩引いて、自分は何で幸せになるのかを考えた」ということです。' },
+          { ck: [['What makes me happy', '私を幸せにして'], ['and having a great day', 'いい1日にしてくれるのは'], ['is going for a walk', '散歩に出かけること'], ['and clearing my head,', 'そして頭をすっきりさせること'], ['talking to my husband or my children,', '夫や子どもたちと話すこと'], ['or my mom or my friends,', 'あるいは母や友人と'], ["knowing that I'm doing a great job at work", '仕事でしっかりやれているとわかっていること'], ['and really fulfilling that part of the purpose in my life,', 'そして人生の目的のその部分を本当に果たしていること'], ["whether it's at work", 'それが仕事であれ'], ['or in the community.', '地域であれ']],
+            note: '<b>What makes me happy and having a great day</b> が主語で、<b>is</b> の後に「〜すること」が並びます。and having a great day は文法的には崩れていて、「いい1日にしてくれるのは」の意味で取ります。' },
+          { ck: [['And I know', 'そしてわかっています'], ['that makes a great day for me, too.', 'それが私にとっても、いい1日をつくるんだと']] },
+        ],
+        terms: [
+          { t: 'financially fit', m: 'お金の面で健全な', re: 'financially fit' },
+          { t: 'perception of', m: '〜の受け止め方、実感', re: 'perception of' },
+          { t: 'be X percent more likely to', m: '〜である確率がX%高い', re: 'percent more likely' },
+          { t: 'twice as likely to', m: '〜である確率が2倍', re: 'twice as likely' },
+          { t: 'above the average', m: '平均を上回って', re: 'above the average' },
+          { t: 'sit back', m: '一歩引いて落ち着いて考える', re: 'sitting back' },
+          { t: 'clear one’s head', m: '頭をすっきりさせる', re: 'clearing my head' },
+          { t: 'fulfill', m: '（役割・目的を）果たす、満たす', re: 'fulfilling' },
+        ],
+        ja: 'わかったのは、お金の面で健全な人たちは、生活の質の実感がかなり高い、30%も高いということです。体が健康である確率は20%高く、心の健康が平均を上回っている確率は2倍です。相関がはっきり見えますよね。そして銀行員の立場からも一歩引いて、私を幸せにするものは何だろうと考えてみました。私を幸せにして、いい1日にしてくれるのは、散歩に出かけて頭をすっきりさせること、夫や子どもたち、母や友人と話すこと、仕事でしっかりやれているとわかっていること、そして仕事でも地域でも、人生の目的のその部分を本当に果たせていることです。それが私にとってもいい1日をつくるとわかっています。',
+      },
+      {
+        ts: '05:42', spk: 'WS',
+        gist: '脳は人とつながるように進化してきた。画面越しではなく対面のやりとりが1日の中にどれだけあるかが、良い人生に向かうときの最初の問い。',
+        sents: [
+          { ck: [['Yeah, yeah.', 'ええ、ええ']] },
+          { ck: [['Well, you know,', 'そうですね'], ["you're touching on something", 'あなたが触れているのは'], ['that we know is so true', '本当にそうだとわかっていることです'], ['from neuroscience research.', '神経科学の研究から']],
+            note: '<b>something that we know is so true</b> は、that が is の主語で、we know が間に挟まっています（私たちが本当だと知っている何か）。' },
+          { ck: [['That is,', 'つまり'], ['our brains evolved', '私たちの脳は進化してきた'], ['to connect with each other.', '互いにつながるように']] },
+          { ck: [['There are parts of our brains', '脳にはこんな部分がある'], ['that evolved', '進化してきた'], ['just to be able for me to be able to appreciate', 'ただ私が読み取れるようにするために'], ['the expression on your face,', 'あなたの表情を'], ['what that means,', 'それが何を意味するか'], ["how you're connecting with me.", 'あなたが私とどうつながっているかを']],
+            note: '<b>to be able for me to be able to appreciate</b> は be able が重なった言い間違いで、for me to be able to appreciate（私が読み取れるように）の意味です。' },
+          { ck: [['And we all have that.', 'そして誰もがそれを持っています']] },
+          { ck: [['And I think', 'そして思うのは'], ["that's such an important element to remember", 'それは覚えておくべき、とても大切な点だということ'], ['when we all spend so much time', '私たちが皆、とても長い時間を過ごしているときに'], ['on our phones, on our computers,', 'スマホやパソコンで'], ['even with Zoom,', 'Zoomでさえ'], ["it's not the same", '同じではない'], ['as this kind of wonderful face-to-face interaction', 'こういう素晴らしい対面のやりとりとは'], ["that we're able to have today.", '今日私たちができている']],
+            note: '<b>even with Zoom, it\'s not the same as…</b> から、文の途中で新しい文が始まっています（Zoomでさえ、〜とは同じではない）。' },
+          { ck: [['And asking yourself,', 'そして自分に問いかけること'], ['is that a good part?', 'それは良い部分か'], ['Is that a big part of my day?', 'それは自分の1日の大きな部分か'], ['My face-to-face interaction', '（つまり）自分の対面のやりとりは、と'], ['is a really good first question', 'それは本当にいい最初の問いです'], ['to start asking', '問い始めるのに'], ['when you head towards a good life,', '良い人生に向かうときに'], ['I think.', 'と私は思います']],
+            note: '全体で1つの文です。<b>Asking yourself …</b>（〜と自分に問うこと）が主語で、<b>is a really good first question</b> が述語。My face-to-face interaction は、問いの中の that を言い直したものです。' },
+        ],
+        terms: [
+          { t: 'touch on', m: '〜に触れる', re: 'touching on' },
+          { t: 'evolve', m: '進化する', re: 'evolved' },
+          { t: 'appreciate', m: '（意味や価値を）しっかり読み取る、理解する', re: 'appreciate' },
+          { t: 'expression', m: '表情', re: 'expression' },
+          { t: 'face-to-face interaction', m: '対面でのやりとり', re: 'face-to-face interaction' },
+          { t: 'head towards', m: '〜に向かう', re: 'head towards' },
+        ],
+        ja: 'ええ、本当に。あなたが触れているのは、神経科学の研究から本当にそうだとわかっていることです。つまり、私たちの脳は互いにつながるように進化してきたんです。脳には、私があなたの表情を読み取り、それが何を意味するのか、あなたが私とどうつながろうとしているのかを理解できるようにするためだけに進化した部分があります。誰もがそれを持っています。私たちは皆、スマホやパソコンに長い時間を費やしているからこそ、これは覚えておくべき大切な点だと思います。Zoomでさえ、今日私たちがしているような素晴らしい対面のやりとりとは同じではありません。ですから、「対面のやりとりは、自分の1日の中で良い部分、大きな部分を占めているだろうか」と自分に問いかけることは、良い人生に向かうときの最初の問いとしてとても良いと思います。',
+      },
+      {
+        ts: '06:35', spk: 'AS',
+        gist: '「健康こそ財産」という言葉は、あなたにとってどういう意味か。',
+        sents: [
+          { ck: [['So I want to scratch into a little bit', 'では、もう少し掘り下げたいのですが'], ['because just to balance this concept of a good life,', '良い人生という考えのバランスを取るために'], ['these elements of a good life,', '良い人生のこうした要素の'], ['you know,', 'ほら'], ['there’s a phrase:', 'こんな言葉があります'], ['“Health is wealth.”', '「健康こそ財産」']],
+            note: '<b>scratch into</b> は一般的な言い方ではなく、dig into（掘り下げる）に近い意味で使っています。<b>because just to balance…</b> は文が完結しないまま、言葉の話題に移っています。' },
+          { ck: [['What does that mean', 'それはどういう意味ですか'], ['to you?', 'あなたにとって']] },
+        ],
+        terms: [
+          { t: 'scratch into', m: '少し掘り下げる（口語的で、本来は dig into）', re: 'scratch into' },
+          { t: 'balance', m: '（偏らないように）バランスを取る', re: 'balance' },
+          { t: 'Health is wealth', m: '健康こそ財産（ことわざ）', re: 'Health is wealth' },
+        ],
+        ja: 'では、もう少し掘り下げたいと思います。良い人生という考え方、その要素のバランスを取るために。「健康こそ財産」という言葉がありますよね。あなたにとって、それはどういう意味ですか。',
+      },
+      {
+        ts: '06:46', spk: 'WS',
+        gist: '「脳の健康こそ財産」と言い換えたい。脳は人のすべてを決める。睡眠・食事・人間関係・ほどよいストレスで脳を健康に保つことが、長く頭が働く人生という「財産」につながる。',
+        sents: [
+          { ck: [['I think for me,', '私の場合は'], ['I would modify that phrase', 'その言葉を変えたいと思います'], ['into brain health is wealth.', '「脳の健康こそ財産」に']] },
+          { ck: [['Why?', 'なぜか']] },
+          { ck: [['Because the human brain', 'なぜなら人間の脳は'], ['is the most complex structure', '最も複雑な構造物だから'], ['known to humankind,', '人類が知る中で'], ['and it defines everything about us:', 'そして脳が私たちのすべてを決めている'], ['our sense of humor,', 'ユーモアのセンス'], ['how we converse with each other,', '互いにどう会話するか'], ["whether we're more introverts or extroverts.", '内向的か外向的か']],
+            note: '<b>known to humankind</b> は過去分詞が後ろから structure を説明しています（人類に知られている）。コロン（:）の後は everything の具体例です。' },
+          { ck: [['It has to do', 'それは関係している'], ['with the connectivity of our own brains.', '私たち自身の脳のつながり方と']] },
+          { ck: [['And so I say', 'だから私は言うんです'], ['brain health is wealth,', '脳の健康こそ財産だと'], ['because the healthier that your brain is --', 'なぜなら脳が健康であればあるほど……'], ['How do we make the brain healthy?', 'どうすれば脳を健康にできるか']],
+            note: '<b>the healthier that your brain is --</b> は「the＋比較級, the＋比較級（〜すればするほど…）」の前半だけで止まり、別の問いに移っています。後半は少し後の <b>That will give you the longest possible…</b> で回収されます。' },
+          { ck: [['With good sleep,', '良い睡眠で'], ['with good food,', '良い食事で'], ['with good social connections,', '良い人間関係で'], ['with minimizing,', 'そして最小限にすることで'], ['though not eliminating all stress.', 'すべてのストレスをなくすのではなく']],
+            note: '<b>minimizing, though not eliminating all stress</b> は、minimizing と eliminating がどちらも stress にかかります（ストレスをなくすのではなく、最小限にする）。' },
+          { ck: [['Because stress can be good,', 'ストレスは良いものにもなりうるから'], ['it drives you towards the things', 'それがあなたを駆り立てる'], ['that you want to achieve.', '成し遂げたいことへと']] },
+          { ck: [['That will give you', 'それがもたらしてくれるのは'], ['the longest possible healthy, good, positive cognitive life', 'できるだけ長く、健康で良い、前向きな認知の人生'], ['that you could have.', 'あなたが持ちうる']],
+            note: '<b>That</b> は前に挙げた睡眠・食事・人間関係・ストレスの管理を指します。<b>cognitive life</b> は「頭がしっかり働く人生」のことです。' },
+          { ck: [['So for me,', 'だから私にとって'], ['brain health is wealth.', '脳の健康こそ財産なんです']] },
+          { ck: [['And I define wealth', 'そして私は財産を定義します'], ['as that long, good cognitive life.', 'その長く良い、頭がしっかり働く人生だと']] },
+        ],
+        terms: [
+          { t: 'modify A into B', m: 'AをBに変える、修正する', re: 'modify' },
+          { t: 'humankind', m: '人類', re: 'humankind' },
+          { t: 'define', m: '決定づける（最後の文では「定義する」）', re: 'defines' },
+          { t: 'converse', m: '会話する', re: 'converse' },
+          { t: 'introvert / extrovert', m: '内向型の人／外向型の人', re: 'introverts' },
+          { t: 'have to do with', m: '〜と関係がある', re: 'has to do' },
+          { t: 'connectivity', m: '（神経の）つながり方', re: 'connectivity' },
+          { t: 'social connections', m: '人とのつながり、人間関係', re: 'social connections' },
+          { t: 'minimize', m: '最小限にする', re: 'minimizing' },
+          { t: 'eliminate', m: 'なくす、取り除く', re: 'eliminating' },
+          { t: 'drive A towards B', m: 'AをBへ駆り立てる', re: 'drives you towards' },
+          { t: 'cognitive', m: '認知の（考える・覚えるといった頭の働きの）', re: 'cognitive' },
+        ],
+        ja: '私なら、その言葉を「脳の健康こそ財産」に変えたいと思います。なぜか。人間の脳は人類が知る中で最も複雑な構造物で、私たちのすべてを決めているからです。ユーモアのセンスも、互いにどう会話するかも、内向的か外向的かも。それは私たち自身の脳のつながり方に関係しています。だから私は「脳の健康こそ財産」と言うんです。脳が健康であればあるほど……では、どうすれば脳を健康にできるか。良い睡眠、良い食事、良い人間関係、そしてストレスをなくすのではなく最小限にすることです。ストレスは良いものにもなり、成し遂げたいことへと駆り立ててくれるからです。そうすれば、できるだけ長く、健康で前向きに頭が働く人生を送ることができます。だから私にとっては、脳の健康こそ財産です。そして私は、財産とはその長く良い、頭がしっかり働く人生のことだと考えています。',
+      },
+    ],
+  },
+  {
+    label: 'パート3', range: '07:50–10:49',
+    paras: [
+      {
+        ts: '07:50', spk: 'AS',
+        gist: '長寿の時代になったが、人生の約5分の1は病気とともに過ごす。健康は譲渡も分散もできない唯一の資産。長生きと病気に備えて、貯蓄・投資に加え、健康保険や生命保険で備えることが大切。',
+        sents: [
+          { ck: [['See, I think', 'ほら、私が思うに'], ['the long life concept is really important.', '長生きという考え方がとても大切です']] },
+          { ck: [['So when I look at that phrase,', 'だから、その言葉を見ると'], ['I think about longevity.', '私は長寿のことを考えます']] },
+          { ck: [['And I think, you know,', 'そして思うのは'], ["back in the '50s", '1950年代には'], ['globally,', '世界全体で'], ['we had a life expectancy of around 47,', '平均寿命が47歳ほどだった'], ['which is shocking.', 'これは衝撃的です']] },
+          { ck: [["And now we're up in the 70s,", 'そして今は70代まで上がっています'], ['which is a huge advantage.', 'これはとても大きな前進です']] },
+          { ck: [['So we have a much longer lifespan.', 'つまり、寿命はずっと長くなりました']] },
+          { ck: [['But when we look at health span,', 'でも健康寿命を見ると'], ['still about a fifth of your life', 'まだ人生の約5分の1を'], ["you're living with illness.", '病気を抱えて生きている']],
+            note: '<b>about a fifth of your life</b> が前に出た語順です。「人生の約5分の1を、病気とともに生きている」と取ります。' },
+          { ck: [['And that means', 'そしてそれが意味するのは'], ["we're actually living longer with sickness,", '実は病気を抱えたまま長く生きているということ'], ['which is a very challenging thing to recognize.', 'これは受け止めるのがとても難しいことです']] },
+          { ck: [['So I think', 'だから思うのは'], ['the first factor is absolutely everything that you say,', '1つ目の要素は、まさにあなたの言うことすべてだということ'], ['which is', 'つまり'], ['what can we do to ameliorate that', 'それを改善するために何ができるか'], ['and making sure that we stay healthy?', 'そして健康でいられるようにすること']],
+            note: 'which is の後で「何ができるか」という問いと「〜すること」が混ざった話し言葉です。言いたいのは「病気の期間を減らし、健康でいるために何ができるか」。' },
+          { ck: [['And, you know,', 'そして'], ["there's a dreadful investment analogy", 'ひどい投資のたとえがあるのですが'], ['which I will use,', 'それを使いますね'], ['which is', 'それは'], ['your health is your only personal asset.', 'あなたの健康は、あなたの唯一の個人資産だということ']],
+            note: '<b>dreadful</b> は「ひどい、さえない」。「銀行員らしいつまらないたとえですが」という照れ隠しです。' },
+          { ck: [["It's not transferable,", '譲渡できない'], ["it's not diversifiable,", '分散できない'], ['there are no alternatives.', '代わりもない']] },
+          { ck: [['It’s your most important asset,', 'それはあなたの最も大切な資産で'], ['and it’s intangible.', 'しかも目に見えないものです']] },
+          { ck: [["And you've got to look after it.", 'だから大事にしなければなりません']] },
+          { ck: [["But there's some financial implications of that as well,", 'でもそこにはお金の面での意味合いもあります'], ['which is', 'それは'], ["if we're talking about living longer while we're sick,", '病気を抱えながら長く生きることを考えるなら'], ['we need to actually have some longevity literacy', '長生きに備える知識を実際に持つ必要がある'], ["and realize that we're going to live longer,", 'そして自分は長く生きるのだと自覚して'], ['we need to save and invest and plan for that.', 'それに向けて貯蓄し、投資し、計画する必要がある']],
+            note: '<b>there\'s some … implications</b> は本来 there are ですが、話し言葉ではよくある形です。' },
+          { ck: [["And if some of that's going to be while we're sick,", 'そしてその一部が病気の期間になるなら'], ['we actually need to make sure', '実際に確かめておく必要がある'], ['that we can fund our sickness as well', '病気の費用もまかなえること'], ["and make sure that we have a quality of life while we're sick.", 'そして病気の間も生活の質を保てることを']] },
+          { ck: [['And that obviously is pure savings and investments.', 'そしてそれは当然、純粋に貯蓄と投資の話です']] },
+          { ck: [['But then it gets into protection,', 'でもそこから保障の話になります'], ["whether that's health insurance,", 'たとえば健康保険で'], ['to allow people to bounce back', '人が立ち直れるように'], ['and progress forward.', 'そして前に進めるように']],
+            note: '<b>protection</b> は保険業界の言葉で「保障（万一への備え）」の意味です。' },
+          { ck: [['Because life is never a straight line,', '人生はまっすぐな一本道ではないから'], ['you know,', 'ほら'], ['you never know quite when you might get sick', 'いつ病気になるかはわからないし'], ['and you might not be at retirement,', 'それは退職後とは限らず'], ['it might be before that.', 'その前かもしれない']] },
+          { ck: [['So making sure that you have health insurance', 'だから健康保険に入っておくこと'], ['to get that bounce back,', 'そうして立ち直るために'], ['and then life insurance for peace of mind', 'そして安心のための生命保険'], ['to look after your family', '家族を守るための'], ['should anything awful happen.', '万一ひどいことが起きたときに']],
+            note: '<b>should anything awful happen</b> は if anything awful should happen の倒置で「万一何かひどいことが起きたら」。文全体は動詞のない「〜すること」の列挙です。' },
+          { ck: [['So I look at “Health is wealth,”', 'だから私は「健康こそ財産」という言葉を見て'], ['and I think, ooh,', 'こう思うんです'], ['longevity, health span,', '長寿、健康寿命'], ['savings and investments', '貯蓄と投資'], ['to make sure that you can look after yourself', '自分の面倒を見られるようにするための'], ['and insurance', 'そして保険'], ['so that you can bounce back', '立ち直れるように'], ['and you can look after your family.', 'そして家族を守れるように']] },
+        ],
+        terms: [
+          { t: 'longevity', m: '長寿、寿命の長さ', re: 'longevity' },
+          { t: 'life expectancy', m: '平均寿命', re: 'life expectancy' },
+          { t: 'lifespan', m: '寿命', re: 'lifespan' },
+          { t: 'health span', m: '健康寿命（健康に過ごせる期間）', re: 'health span' },
+          { t: 'ameliorate', m: '改善する、和らげる', re: 'ameliorate' },
+          { t: 'dreadful', m: 'ひどい、さえない', re: 'dreadful' },
+          { t: 'analogy', m: 'たとえ', re: 'analogy' },
+          { t: 'asset', m: '資産', re: 'asset' },
+          { t: 'transferable', m: '譲渡できる', re: 'transferable' },
+          { t: 'diversifiable', m: '分散できる（投資の言葉）', re: 'diversifiable' },
+          { t: 'intangible', m: '無形の、目に見えない', re: 'intangible' },
+          { t: 'implications', m: '影響、意味合い', re: 'implications' },
+          { t: 'longevity literacy', m: '長生きに備えるための知識', re: 'longevity literacy' },
+          { t: 'fund', m: '（費用を）まかなう', re: 'fund' },
+          { t: 'protection', m: '保障（保険による備え）', re: 'protection' },
+          { t: 'bounce back', m: '立ち直る、回復する', re: 'bounce back' },
+          { t: 'progress forward', m: '前に進む', re: 'progress forward' },
+          { t: 'retirement', m: '退職、引退後', re: 'retirement' },
+          { t: 'peace of mind', m: '安心', re: 'peace of mind' },
+        ],
+        ja: '長生きという考え方はとても大切だと思います。だからその言葉を見ると、私は長寿のことを考えます。1950年代、世界の平均寿命は47歳ほどでした。衝撃的ですよね。それが今では70代まで延びていて、これはとても大きな前進です。寿命はずっと長くなりました。でも健康寿命を見ると、人生の約5分の1は、まだ病気を抱えて生きています。つまり病気を抱えたまま長く生きているということで、これは受け止めるのがとても難しい現実です。ですから1つ目の要素は、まさにあなたがおっしゃることすべて、つまりそれを改善し、健康でいるために何ができるかだと思います。そして、ひどい投資のたとえを使わせてもらうと、健康はあなたにとって唯一の個人資産です。譲渡もできないし、分散もできないし、代わりもありません。最も大切な資産で、しかも目に見えない。だから大事にしなければなりません。でもそこには、お金の面での意味合いもあります。病気を抱えながら長く生きるのなら、長生きに備える知識を持ち、自分は長く生きるのだと自覚して、そのために貯蓄し、投資し、計画する必要があります。そしてその一部が病気の期間になるなら、病気の費用をまかなえるようにし、病気の間も生活の質を保てるようにしておく必要があります。それは当然、純粋に貯蓄と投資の話です。でもそこから保障の話になります。たとえば健康保険で、人が立ち直り、前に進めるようにすること。人生はまっすぐな一本道ではありません。いつ病気になるかはわからないし、それは退職後とは限らず、その前かもしれません。ですから、立ち直るための健康保険に入っておくこと。そして、万一ひどいことが起きたときに家族を守れるよう、安心のための生命保険に入っておくこと。だから私は「健康こそ財産」という言葉を見ると、長寿、健康寿命、自分の面倒を見られるようにするための貯蓄と投資、そして立ち直り、家族を守れるようにするための保険を思い浮かべるんです。',
+      },
+      {
+        ts: '09:57', spk: 'WS',
+        gist: '説明は明快だが、考える側にとっては怖い。何年分いくら必要かもわからない。そういう人は誰に相談すればいいのか。',
+        sents: [
+          { ck: [['You make it sound so clear and easy,', 'あなたはとても明快で簡単なことのように話すけれど'], ["but it's very scary", 'でもとても怖いことです'], ['for somebody thinking about that.', 'それについて考える人にとっては']] },
+          { ck: [['You know', 'ほら'], ['how long, how much do I need?', 'どれくらいの期間、どれくらいの額が必要なのか']],
+            note: '頭に浮かぶ疑問をそのまま並べた言い方です（何年分、いくら必要なの？）。' },
+          { ck: [['And what do we know.', 'そして私たちに何がわかるのか']] },
+          { ck: [['I mean', 'つまり'], ['what would you say to somebody', 'あなたなら、こんな人に何と言いますか'], ['who listens to that and say,', 'それを聞いてこう言う人に'], ["oh gosh, I'm not sure exactly what to do.", 'ああ、何をすればいいのかよくわからない、と']],
+            note: '<b>who listens to that and say</b> は本来 says。話し言葉の崩れです。' },
+          { ck: [['Who should they go to?', 'その人は誰に相談すればいいでしょう']] },
+        ],
+        terms: [
+          { t: 'make it sound', m: '〜のように聞こえさせる', re: 'make it sound' },
+          { t: 'scary', m: '怖い', re: 'scary' },
+          { t: 'go to (someone)', m: '（人に）相談する、頼る', re: 'go to' },
+        ],
+        ja: 'とても明快で簡単なことのようにお話しされますが、それを考える人にとってはとても怖いことです。どれくらいの期間、いくら必要なのか。私たちに何がわかるでしょう。それを聞いて「ああ、どうしたらいいのかよくわからない」と言う人に、あなたなら何と言いますか。誰に相談すればいいのでしょう。',
+      },
+      {
+        ts: '10:15', spk: 'AS',
+        gist: 'まずはネットで学ぶこと。目標ごとに貯められるデジタルツールもある。好奇心を持つ、学び話し合う、そして行動する。貯蓄と投資に少しの保障を。',
+        sents: [
+          { ck: [['Do your reading online.', 'ネットで調べて読んでください']] },
+          { ck: [["There's a lot of education online,", 'ネットには学べるものがたくさんあります'], ['a lot of financial education online.', 'お金について学べるものがたくさん']] },
+          { ck: [['And there are even some digital tools now', 'そして今ではデジタルのツールまであって'], ['where you can look at,', 'そこでは見ることができ'], ['you can outline what your goals are', '自分の目標が何かを書き出せて'], ['and save for each of those goals individually.', 'その目標ごとに別々に貯められる']] },
+          { ck: [['And have that looked at.', 'そしてそれを見てもらうこともできます']],
+            note: '<b>have that looked at</b> は「have＋物＋過去分詞」で「それを（専門家などに）見てもらう」。' },
+          { ck: [['And I think', 'そして思うのは'], ['there are some tremendous tools', '素晴らしいツールがあるということ'], ['for financial fitness.', 'お金の健全さのための']] },
+          { ck: [['And the first step', 'そして最初の一歩は'], ['is curiosity and asking that question.', '好奇心を持ち、その問いを投げかけること']] },
+          { ck: [['And the second step', 'そして二歩目は'], ['is education and having the conversation.', '学ぶことと、話し合うこと']] },
+          { ck: [["But please don't forget to act on it.", 'でも、それをもとに行動するのを忘れないでください']] },
+          { ck: [['Making sure that you save and invest', 'きちんと貯蓄と投資をすることが'], ['is really important', '本当に大切です'], ['with a little bit of protection.', '少しの保障と合わせて']] },
+        ],
+        terms: [
+          { t: 'do your reading', m: '自分で調べて読む', re: 'Do your reading' },
+          { t: 'outline', m: '（要点を）書き出す', re: 'outline' },
+          { t: 'individually', m: '個別に', re: 'individually' },
+          { t: 'have A looked at', m: 'Aを見てもらう', re: 'have that looked at' },
+          { t: 'tremendous', m: '素晴らしい、ものすごい', re: 'tremendous' },
+          { t: 'act on', m: '〜に基づいて行動する', re: 'act on' },
+        ],
+        ja: 'ネットで調べて読んでみてください。ネットにはお金について学べるものがたくさんあります。今では、自分の目標を書き出して、目標ごとに別々に貯められるデジタルツールまであって、それを見てもらうこともできます。お金の健全さのための素晴らしいツールがあると思います。最初の一歩は、好奇心を持ってその問いを投げかけること。二歩目は、学んで、話し合うこと。でも、それをもとに行動するのを忘れないでください。少しの保障と合わせて、きちんと貯蓄と投資をすることが本当に大切です。',
+      },
+    ],
+  },
+  {
+    label: 'パート4', range: '10:49–14:23',
+    paras: [
+      {
+        ts: '10:49', spk: 'WS',
+        gist: '鈴木さんからの質問。長期的な健康は長期的な財産に大切。あなた自身はこれまでどう体を動かしてきたか。',
+        sents: [
+          { ck: [['Well, I mean,', 'さて'], ['we talked about long-term fitness and financial fitness,', '長期的な健康とお金の健全さについて話してきましたが'], ['but I wanted to ask you', 'あなたに聞きたかったのは'], ['about your own personal fitness.', 'あなた自身の体の健康についてです']] },
+          { ck: [['Because long-term health', 'なぜなら長期的な健康は'], ['is so important', 'とても大切だから'], ['for our long-term wealth.', '長期的な財産にとって']] },
+          { ck: [['What has been your personal history', 'あなた個人のこれまではどうでしたか'], ['with physical fitness?', '体を鍛えることについて']] },
+        ],
+        terms: [
+          { t: 'long-term', m: '長期的な', re: 'long-term' },
+          { t: 'personal history with', m: '〜とのこれまでの関わり', re: 'personal history' },
+        ],
+        ja: 'さて、長期的な健康とお金の健全さについて話してきましたが、あなた自身の体の健康についてもお聞きしたかったんです。長期的な健康は、長期的な財産にとってとても大切ですから。あなたはこれまで、運動とどう関わってきましたか。',
+      },
+      {
+        ts: '11:09', spk: 'AS',
+        gist: '運動とスポーツがなければ今の自分はない。女の子のチームスポーツは、チームワーク、リーダーシップ、共感、勝ち負けの経験を与え、一生の土台になる。',
+        sents: [
+          { ck: [["I wouldn't be sitting here right now", '私は今ここに座っていないでしょう'], ["if it wasn't for fitness, exercise and sport.", '体を鍛えること、運動、スポーツがなかったら']],
+            note: '<b>I wouldn\'t be … if it wasn\'t for …</b> は「〜がなかったら、今の私はない」という仮定法の定番表現です（if it weren\'t for と同じ）。' },
+          { ck: [['I am a huge proponent', '私は大賛成派です'], ['of team sports for girls.', '女の子のチームスポーツの']] },
+          { ck: [['Team sports for girls is a great --', '女の子のチームスポーツは素晴らしい……'], ["actually, there's a Deloitte study about it --", '実はデロイトの調査もあるのですが'], ['team sports for girls gives you', '女の子のチームスポーツが与えてくれるのは'], ['team building, problem solving, leadership skills,', 'チームづくり、問題解決、リーダーシップ'], ['understanding other people, empathy,', '他人を理解すること、共感'], ['how to win, how to lose, how to compete', '勝ち方、負け方、競い方'], ['and the rules of the game.', 'そしてルールです']],
+            note: '<b>is a great --</b> で文を止め、<b>-- actually, … --</b> を挟んでから言い直しています。Deloitte は大手のコンサルティング会社です。' },
+          { ck: [['And I think', 'そして思うのは'], ["that's a tremendous thing.", 'それは素晴らしいことだということ']] },
+          { ck: [['I was a rower,', '私はボートの選手で'], ['I was a swimmer,', '水泳の選手で'], ['I was an athlete.', '運動選手でした']] },
+          { ck: [["I've seen it", 'それを見てきました'], ['in my sister, my mother and my children.', '姉妹や母、子どもたちにも']] },
+          { ck: [['And I think', 'そして思うのは'], ['that team sports for girls', '女の子のチームスポーツは'], ['just sets you up for life.', 'その後の人生の土台をつくってくれるということ']] },
+        ],
+        terms: [
+          { t: 'if it wasn’t for', m: '〜がなかったら', re: "if it wasn't for" },
+          { t: 'proponent', m: '支持者、推進者', re: 'proponent' },
+          { t: 'team building', m: 'チームづくり', re: 'team building' },
+          { t: 'empathy', m: '共感', re: 'empathy' },
+          { t: 'compete', m: '競う', re: 'compete' },
+          { t: 'rower', m: 'ボート（漕艇）の選手', re: 'rower' },
+          { t: 'set A up for life', m: 'Aに一生役立つ土台をつくる', re: 'sets you up for life' },
+        ],
+        ja: '体を鍛えること、運動、スポーツがなかったら、私は今ここにいないでしょう。私は女の子のチームスポーツの大賛成派です。女の子のチームスポーツは素晴らしい……実はデロイトの調査もあるのですが、チームづくり、問題解決、リーダーシップ、他人を理解すること、共感、勝ち方、負け方、競い方、そしてルールを教えてくれます。それは素晴らしいことだと思います。私はボートの選手で、水泳の選手で、運動選手でした。姉妹や母、子どもたちにもそれを見てきました。女の子のチームスポーツは、その後の人生の土台をつくってくれると思います。',
+      },
+      {
+        ts: '11:50', spk: 'AS',
+        gist: '今は世界中を移動するのでチームスポーツは無理だが、行く先々で泳げる場所を探すのが楽しみ。週末はロンドンの公営プールで仲間と泳ぎ、その後はおしゃべりとコーヒー。',
+        sents: [
+          { ck: [['That being said,', 'とはいえ'], ['right now I travel globally.', '今は世界中を飛び回っています']] },
+          { ck: [["Team sports is not where it's at.", 'チームスポーツは今の私には合いません']],
+            note: '<b>where it\'s at</b> は口語で「いちばんふさわしいもの、肝心なところ」。not where it\'s at で「今の生活には合わない」の意味です。' },
+          { ck: [['But I love to swim,', 'でも泳ぐのが大好きなので'], ['so my personal adventure', '私のちょっとした冒険は'], ['in every city I go to', '行く先々の街での'], ['is to find somewhere to swim.', '泳げる場所を見つけることです']] },
+          { ck: [['So it might be a lake in Switzerland,', 'だからスイスの湖のこともあれば'], ['it might be, you know, the beach in Asia.', 'アジアのビーチのこともあります']] },
+          { ck: [['On the weekends, though,', 'でも週末は'], ["it's my local public pool in London", 'ロンドンの地元の公営プールです'], ['with a bunch of wonderful ladies.', '素敵な女性たちと一緒に']] },
+          { ck: [['We get there at seven,', '7時にそこに行って'], ['we have a swim,', 'ひと泳ぎして'], ['and then we have a big giggle and a coffee afterwards.', 'その後みんなで笑い合いながらコーヒーを飲みます']] },
+        ],
+        terms: [
+          { t: 'that being said', m: 'とはいえ', re: 'That being said' },
+          { t: 'travel globally', m: '世界中を移動する', re: 'travel globally' },
+          { t: 'not where it’s at', m: '（今の自分には）合っていない', re: "not where it's at" },
+          { t: 'adventure', m: '冒険、ちょっとした楽しみ', re: 'adventure' },
+          { t: 'public pool', m: '公営プール', re: 'public pool' },
+          { t: 'a bunch of', m: 'たくさんの、何人もの（口語）', re: 'a bunch of' },
+          { t: 'giggle', m: 'くすくす笑い', re: 'giggle' },
+        ],
+        ja: 'とはいえ、今は世界中を飛び回っているので、チームスポーツは向いていません。でも泳ぐのが大好きなので、行く先々の街で泳げる場所を見つけるのが、私のちょっとした冒険です。スイスの湖のこともあれば、アジアのビーチのこともあります。でも週末は、ロンドンの地元の公営プールで、素敵な女性たちと一緒に泳ぎます。7時に集まってひと泳ぎし、その後はみんなで笑い合いながらコーヒーを飲むんです。',
+      },
+      {
+        ts: '12:17', spk: 'WS',
+        gist: '自分も子どもの頃はチームスポーツで育った。だが大学の終身在職権を目指して6年間仕事だけの生活をし、うまくいかず不幸だった。ペルーの川下りで気分がよくなったことをきっかけに、運動が脳に与える影響を研究するようになった。',
+        sents: [
+          { ck: [['Oh, that sounds great.', 'まあ、素敵ですね']] },
+          { ck: [['You know,', 'じつは'], ['I grew up in California.', '私はカリフォルニアで育ちました']] },
+          { ck: [['Outside,', '外で'], ['I played tennis,', 'テニスをして'], ['I was on basketball teams and softball teams,', 'バスケットボールやソフトボールのチームに入っていた'], ['so I grew up in the same way you did', 'だからあなたと同じように育ったんです'], ['with that team-sport mentality', 'チームスポーツの考え方の中で'], ['and learned so much from it.', 'そしてそこからたくさん学んだ']] },
+          { ck: [['But it took a big lesson,', 'でも大きな教訓が必要でした'], ['a big kind of kick in the pants,', 'お尻をたたかれるような大きな出来事が'], ['if you will,', 'いわば'], ['for me to really realize', '私が本当に気づくには'], ['how important exercise was.', '運動がどれほど大切かに']],
+            note: '<b>it took A for me to realize B</b> は「私がBに気づくにはAが必要だった」。<b>kick in the pants</b> は「（お尻を蹴られるような）喝、刺激」です。' },
+          { ck: [['And this was a moment', 'それはちょうど〜のときでした'], ['when I was trying to get tenure', '私が終身在職権を取ろうとしていた'], ['at New York University,', 'ニューヨーク大学で'], ['which is a very, very difficult thing to do.', 'それはとても難しいことです']] },
+          { ck: [["And my strategy wasn't optimal,", 'そして私の作戦は最善ではなかった'], ['I decided to do nothing else but work', '仕事以外は何もしないと決めたんです'], ['for six years.', '6年間']] },
+          { ck: [['I could do it for six years.', '6年ならできる、と']],
+            note: '当時の自分の考えをそのまま言っています（6年ならやれるだろう）。' },
+          { ck: [['And I tried', 'そしてやってみたけれど'], ["and didn't do so well", 'あまりうまくいかず'], ['and was not very happy', 'あまり幸せでもなく'], ["and didn't have a lot of social life", '人付き合いもほとんどなく'], ['and was eating way too much takeout.', 'テイクアウトばかり食べていた']] },
+          { ck: [['And discovered that', 'そして気づいたんです'], ['going on a river rafting trip', '川下りの旅に出かけると'], ['to the wilds of deepest Peru,', 'ペルーの奥地の大自然へ'], ['I felt so good.', 'とても気分がよかったことに']],
+            note: '主語の I が省略され、that の後の構文も途中で変わっています。「ペルーの奥地へ川下りに行ったら、とても気分がよかった」と取ります。' },
+          { ck: [['And I thought,', 'そして思いました'], ["my gosh, what's happening here?", 'なんてこと、いったい何が起きているの？と']] },
+          { ck: [['And it actually changed', 'そしてそれが実際に変えたんです'], ['my whole research direction.', '私の研究の方向性をすっかり']] },
+          { ck: [['I started to study', '私は研究し始めました'], ['the effects of physical activity in the brain,', '体を動かすことが脳に与える影響を'], ['and now I can tell you exactly', 'そして今ならはっきり言えます'], ['what was happening to my brain.', '私の脳に何が起きていたのか']] },
+        ],
+        terms: [
+          { t: 'mentality', m: '考え方、気質', re: 'mentality' },
+          { t: 'kick in the pants', m: '喝、（お尻をたたかれるような）刺激', re: 'kick in the pants' },
+          { t: 'if you will', m: 'いわば、言ってみれば', re: 'if you will' },
+          { t: 'tenure', m: '（大学の）終身在職権', re: 'tenure' },
+          { t: 'optimal', m: '最適な', re: 'optimal' },
+          { t: 'nothing else but', m: '〜以外は何も', re: 'nothing else but' },
+          { t: 'way too much', m: 'あまりにも多くの', re: 'way too much' },
+          { t: 'takeout', m: 'テイクアウトの食事', re: 'takeout' },
+          { t: 'river rafting', m: 'ゴムボートでの川下り', re: 'river rafting' },
+          { t: 'the wilds of', m: '〜の奥地、大自然', re: 'the wilds of' },
+          { t: 'research direction', m: '研究の方向性', re: 'research direction' },
+          { t: 'physical activity', m: '体を動かすこと、身体活動', re: 'physical activity' },
+        ],
+        ja: 'まあ、素敵ですね。私はカリフォルニアで育ちました。外でテニスをしたり、バスケットボールやソフトボールのチームに入ったりしていたので、あなたと同じようにチームスポーツの考え方の中で育ち、そこからたくさん学びました。でも、運動がどれほど大切かに本当に気づくには、大きな教訓、いわばお尻をたたかれるような出来事が必要でした。それは、ニューヨーク大学で終身在職権を取ろうとしていたときのことです。これはとても難しいことです。私の作戦は最善ではありませんでした。6年間、仕事以外は何もしないと決めたんです。6年ならできる、と。やってみたものの、あまりうまくいかず、幸せでもなく、人付き合いもほとんどなく、テイクアウトばかり食べていました。そんなとき、ペルーの奥地の大自然へ川下りの旅に出かけたら、とても気分がよかったんです。「いったい何が起きているの？」と思いました。それが、私の研究の方向性をすっかり変えました。体を動かすことが脳に与える影響を研究し始め、今では、あのとき私の脳に何が起きていたのかをはっきり説明できます。',
+      },
+      {
+        ts: '13:29', spk: 'WS',
+        gist: '川下りの旅で、仕事漬けだった脳はドーパミンなどの脳内物質に満たされていた。運動はすぐに気分と集中力を上げてくれる。それが人生と研究を変えた。今も自分で実践していて、今朝もヨガをしてきた。',
+        sents: [
+          { ck: [['So my workaholic brain', 'つまり、仕事中毒だった私の脳は'], ['was being infused', '満たされていたんです'], ['on this river rafting trip', 'この川下りの旅で'], ['with a whole bunch of neurochemicals,', 'たくさんの脳内物質で'], ['including dopamine, serotonin, noradrenaline.', 'ドーパミン、セロトニン、ノルアドレナリンなど']],
+            note: '<b>be infused with</b> は「〜で満たされる」。受け身の進行形で「満たされつつあった」。with が離れているので、with まで待って読みます。' },
+          { ck: [['As your brain is', 'あなたの脳もそうなっているように'], ['in your morning London swims,', 'ロンドンでの朝の水泳のときに'], ['I like to call it', '私はそれをこう呼んでいます'], ['a bubble bath of neurochemicals', '脳内物質の泡風呂'], ['that make you feel good.', '気分をよくしてくれる']],
+            note: '<b>As your brain is …</b> は「あなたの脳も（朝の水泳で）そうなっているように」。is の後に being infused が省略されています。' },
+          { ck: [['It gives you an immediate mood boost,', 'すぐに気分を上げてくれるし'], ['it gives you an immediate focus boost.', 'すぐに集中力も上げてくれる']] },
+          { ck: [['So when you go back into work,', 'だから仕事に戻ったとき'], ['you can focus on what you need to do.', 'やるべきことに集中できる']] },
+          { ck: [['It changed my life,', 'それが私の人生を変え'], ['and it changed my research towards that', '私の研究もその方向へ変えた'], ['to try and understand', '理解しようとするために'], ['what is that prescription?', 'その処方箋は何か'], ['What should we all be doing at different ages?', '年代ごとに私たちは何をすべきか']],
+            note: '<b>try and understand</b> は try to understand の口語。<b>what is that prescription</b> は、間接疑問を疑問文の語順のまま言っています。' },
+          { ck: [['And so yes,', 'だから、ええ'], ['I am a big proponent of exercise.', '私は運動の大賛成派です']] },
+          { ck: [['And of course', 'そしてもちろん'], ['I try and do what I preach', '人に勧めていることを自分でもやるようにしています'], ['and do what I study.', '研究していることも']] },
+          { ck: [['So even this morning,', 'だから今朝も'], ['we had to get in here pretty early.', 'ここにかなり早く来なければならなかったけれど']] },
+          { ck: [['I got in a good 20-minute yoga workout.', 'しっかり20分ヨガをしてきました']],
+            note: '<b>get in</b> は「（時間を見つけて）こなす、済ませる」。<b>a good 20-minute</b> は「たっぷり20分の」。' },
+        ],
+        terms: [
+          { t: 'workaholic', m: '仕事中毒の', re: 'workaholic' },
+          { t: 'be infused with', m: '〜で満たされる', re: 'infused' },
+          { t: 'a whole bunch of', m: 'とてもたくさんの（口語）', re: 'a whole bunch of' },
+          { t: 'neurochemicals', m: '脳内物質', re: 'neurochemicals' },
+          { t: 'bubble bath', m: '泡風呂（ここでは脳が脳内物質に満たされるたとえ）', re: 'bubble bath' },
+          { t: 'immediate', m: 'すぐの、即座の', re: 'immediate' },
+          { t: 'mood boost', m: '気分の高まり', re: 'mood boost' },
+          { t: 'prescription', m: '処方箋', re: 'prescription' },
+          { t: 'proponent', m: '支持者、推進者', re: 'proponent' },
+          { t: 'practice what you preach', m: '人に説くことを自分も実践する（ここでは do what I preach）', re: 'what I preach' },
+          { t: 'get in', m: '（時間を見つけて）こなす', re: 'got in' },
+          { t: 'workout', m: '運動、トレーニング', re: 'workout' },
+        ],
+        ja: 'つまり、仕事中毒だった私の脳は、あの川下りの旅で、ドーパミン、セロトニン、ノルアドレナリンなど、たくさんの脳内物質に満たされていたんです。ロンドンでの朝の水泳のとき、あなたの脳もそうなっています。私はそれを、気分をよくしてくれる「脳内物質の泡風呂」と呼んでいます。すぐに気分が上がり、すぐに集中力も上がる。だから仕事に戻ったとき、やるべきことに集中できるんです。それが私の人生を変え、研究もその方向へ変わりました。その処方箋は何か、年代ごとに私たちは何をすべきかを理解しようとしてきたんです。ですから、ええ、私は運動の大賛成派です。そしてもちろん、人に勧めていること、研究していることを自分でも実践するようにしています。今朝もかなり早くここに来なければなりませんでしたが、しっかり20分ヨガをしてきました。',
+      },
+    ],
+  },
+  {
+    label: 'パート5', range: '14:23–17:28',
+    paras: [
+      {
+        ts: '14:23', spk: 'AS',
+        gist: '楽しんでいるように聞こえる。遊びや楽しさは、良い人生とどう結びつくのか。',
+        sents: [
+          { ck: [['I’m impressed,', 'すごいですね'], ['and it sounds like you enjoy it.', 'それに楽しんでいるように聞こえます']] },
+          { ck: [['How do you link', 'どう結びつけますか'], ['that concept of play and fun', '遊びや楽しさという考えを'], ['to a good life?', '良い人生と']] },
+        ],
+        terms: [
+          { t: 'impressed', m: '感心した', re: 'impressed' },
+          { t: 'link A to B', m: 'AをBと結びつける', re: 'link' },
+        ],
+        ja: 'すごいですね。それに楽しんでいらっしゃるようですね。遊びや楽しさという考え方を、良い人生とどう結びつけていますか。',
+      },
+      {
+        ts: '14:30', spk: 'WS',
+        gist: '自分の喜びを見つけることが大切だと気づいた。楽しいことを見つけたから運動を続けられた。前向きな言葉を叫ぶ運動（インテンサティ）は、汗だくの合唱のようで最高。まだ見つけていない喜びを探し続けている。',
+        sents: [
+          { ck: [['So, you know,', 'そうですね'], ['I have come to realize', '私は気づくようになりました'], ['that finding my own joy,', '自分自身の喜びを見つけること'], ['what I love to do', 'つまり自分が大好きなことを'], ['is so important.', 'がとても大切だと']] },
+          { ck: [['And yes,', 'そして、ええ'], ['I stuck with my workouts', '私は運動を続けました'], ['after, you know, trying to work so hard to get tenure', '終身在職権のために必死に働いた後も'], ['because I found things that were fun.', '楽しいことを見つけたから']] },
+          { ck: [['I love dance classes,', 'ダンスのクラスが大好きだし'], ['I love this workout called intenSati', 'インテンサティという運動も大好きです'], ['that combines physical movements', '体の動きを組み合わせたもので'], ['from kickbox and dance and yoga', 'キックボクシングやダンスやヨガの'], ['with positive spoken affirmations.', '声に出す前向きな言葉と']],
+            note: '<b>combine A with B</b> は「AとBを組み合わせる」。A が長いので、with が出てくるまで少し待って読みます。intenSati は運動プログラムの名前です。' },
+          { ck: [["So you'd have to yell out in class,", 'だからクラスでは叫ばなければならないんです'], ['"I am strong now,', '「私は今、強い'], ['I believe I will succeed."', '私は成功すると信じている」と']] },
+          { ck: [['And once you get over the awkwardness', 'そしていったん気恥ずかしさを乗り越えると'], ['of yelling things out', '叫ぶことの'], ['with a whole bunch of other sweaty, affirmation-yelling people,', '汗だくで前向きな言葉を叫ぶ大勢の人たちと一緒に'], ['it feels so good', 'とても気持ちがいいんです'], ['to just get it out of your system', 'すっきり吐き出して'], ['and yell with everybody else in unison,', 'みんなと声をそろえて叫ぶのが'], ['with the music, in rhythm.', '音楽に合わせて、リズムに乗って']],
+            note: '<b>once …</b> は「いったん〜すると」。<b>it feels so good to …</b> の it は to 以下を指します（〜するのはとても気持ちがいい）。' },
+          { ck: [["It's a little bit like singing together", '少し一緒に歌うのに似ています'], ['in a sweaty chorus.', '汗だくの合唱団で']] },
+          { ck: [["It's great.", '最高です'], ['I love it.', '大好きなんです']] },
+          { ck: [['And so that made me realize', 'そしてそれで気づいたんです'], ['that there were so many other things', 'ほかにもたくさんのことがあると'], ["that I hadn't even discovered", 'まだ見つけてもいなかった'], ['that could bring that kind of joy into my life.', '人生にそういう喜びをもたらしてくれる']],
+            note: 'things に that 節が2つかかっています（まだ見つけていない／喜びをもたらしうる）。' },
+          { ck: [["And that's what I look for.", 'そしてそれこそ、私が探し求めているものです']] },
+        ],
+        terms: [
+          { t: 'come to realize', m: '〜と気づくようになる', re: 'come to realize' },
+          { t: 'stick with', m: '〜を続ける', re: 'stuck with' },
+          { t: 'affirmation', m: '自分を励ます肯定的な言葉', re: 'affirmations' },
+          { t: 'yell out', m: '大声で叫ぶ', re: 'yell out' },
+          { t: 'get over', m: '〜を乗り越える', re: 'get over' },
+          { t: 'awkwardness', m: 'ぎこちなさ、気恥ずかしさ', re: 'awkwardness' },
+          { t: 'sweaty', m: '汗だくの', re: 'sweaty' },
+          { t: 'get it out of your system', m: '発散してすっきりする', re: 'get it out of your system' },
+          { t: 'in unison', m: '声をそろえて、一斉に', re: 'in unison' },
+          { t: 'chorus', m: '合唱団', re: 'chorus' },
+        ],
+        ja: '自分自身の喜び、つまり自分が大好きなことを見つけるのがとても大切だと、私は気づくようになりました。そして、ええ、終身在職権のために必死に働いた後も運動を続けられたのは、楽しいことを見つけたからです。ダンスのクラスが大好きですし、インテンサティという運動も大好きです。キックボクシング、ダンス、ヨガの動きと、声に出す前向きな言葉を組み合わせたものです。クラスでは「私は今、強い。私は成功すると信じている」と叫ばなければなりません。汗だくで前向きな言葉を叫ぶ大勢の人たちと一緒に叫ぶ気恥ずかしさを乗り越えてしまえば、音楽に合わせ、リズムに乗って、みんなと声をそろえて叫び、すっきり吐き出すのはとても気持ちがいいんです。汗だくの合唱団で一緒に歌うのに少し似ています。最高です。大好きなんです。それで、人生にそういう喜びをもたらしてくれるのに、まだ見つけてもいないことが、ほかにもたくさんあると気づきました。それこそ、私が探し求めているものです。',
+      },
+      {
+        ts: '15:44', spk: 'AS',
+        gist: '共同体に属し、人とつながっていることは、生活の質を2倍に高めるという調査結果がある。研究ではそれをどう見ているか。',
+        sents: [
+          { ck: [['So that sounds like', 'それは〜のように聞こえます'], ['a really connected experience', '人と本当につながれる体験'], ['and giving you that sense of belonging.', 'そして居場所の感覚を与えてくれるもの']] },
+          { ck: [['One of the things that we see', '私たちが目にしていることの1つは'], ['is being part of the community', '地域の一員であること'], ['and social connectedness', 'そして人とのつながりが'], ["really increases people's quality of life.", '人々の生活の質を本当に高めるということです']],
+            note: 'is の後の that が省略されています（One of the things … is (that) being part of … increases …）。' },
+          { ck: [['You know, in fact,', '実際'], ['two times.', '2倍にもなります']] },
+          { ck: [['Can you talk a little bit', '少し話していただけますか'], ['about how you see that', 'あなたがそれをどう見ているかについて'], ['through your work?', 'ご自身の研究を通して']] },
+        ],
+        terms: [
+          { t: 'connected', m: '（人と）つながっている', re: 'connected' },
+          { t: 'sense of belonging', m: '居場所の感覚、帰属感', re: 'sense of belonging' },
+          { t: 'social connectedness', m: '人とのつながり', re: 'social connectedness' },
+          { t: 'quality of life', m: '生活の質', re: 'quality of life' },
+        ],
+        ja: 'それは、人と本当につながれて、居場所の感覚を与えてくれる体験のようですね。私たちが目にしていることの1つは、地域の一員であることや人とのつながりが、人々の生活の質を本当に高めるということです。実際、2倍にもなります。ご自身の研究を通して、それをどう見ているか少しお話しいただけますか。',
+      },
+      {
+        ts: '16:03', spk: 'WS',
+        gist: 'ハーバードの幸福研究によれば、人とのつながりが多いほど人は幸せ。深い関係でなくても、店員との気さくなやりとりも数に入る。脳はつながるために進化した。もっと多くの人に気さくにあいさつすることは、誰でもできる幸福の公式。',
+        sents: [
+          { ck: [['Well,', 'そうですね'], ['I can turn to the research literature.', '研究を参照してみましょう']] },
+          { ck: [['The longest study on happiness', '幸福についての最も長い研究が'], ['that has ever been done', 'これまでに行われた中で'], ['is still ongoing at Harvard,', 'ハーバードで今も続いていて'], ['and now is run by Professor Robert Waldinger at Harvard.', '今はハーバードのロバート・ウォールディンガー教授が率いています']] },
+          { ck: [['And they asked:', 'そして彼らが問うたのは'], ['What makes a happy life?', '何が幸せな人生をつくるのか']] },
+          { ck: [['And the answer was', 'そして答えは'], ['the more social connections that you had.', '人とのつながりが多いほど、というものでした']],
+            note: '<b>the more social connections that you had</b> は「the＋比較級」の前半だけの形です。少し後の <b>The more you had, the happier you were</b> で完成します。' },
+          { ck: [["They didn't have to be deep ones", 'それは深いつながりでなくてもよかった'], ['that you, you know, give presents to', 'プレゼントを贈るような'], ['at Christmas every year.', '毎年クリスマスに']] },
+          { ck: [['That included a friendly interaction', 'そこには気さくなやりとりも含まれていました'], ['with the barista at Starbucks.', 'スターバックスの店員との']] },
+          { ck: [['That counts.', 'それも数に入るんです']] },
+          { ck: [['The more you had,', '多ければ多いほど'], ['the happier you were in life.', '人生でより幸せだった']] },
+          { ck: [['And it goes back to', 'そしてそれは〜に行き着きます'], ['the evolution of our human brain,', '人間の脳の進化に'], ['that we have so many areas evolved', 'つまり私たちには進化した領域がたくさんある'], ['to help us figure out', '私たちが理解できるようにするために'], ['how to have these social interactions.', 'こうした人とのやりとりをどうすればいいかを']],
+            note: '<b>that we have so many areas evolved …</b> は、直前の the evolution of our human brain の中身を説明しています（脳にはそのために進化した領域がたくさんある）。' },
+          { ck: [["It's because", 'それは〜だからです'], ['that social connection is so important to us,', '人とのつながりが私たちにとってとても大切だから'], ['not that every social connection is positive.', 'すべてのつながりが良いものだというわけではないけれど']],
+            note: '<b>not that …</b> は「〜というわけではないが」。誤解がないように補足する言い方です。' },
+          { ck: [['There are, you know,', 'ほら、あります'], ['difficult social connections too.', '難しい人間関係も']] },
+          { ck: [['But that is the crux', 'でもそれが核心です'], ['of what makes us human.', '私たちを人間たらしめているものの']] },
+          { ck: [['And we know that', 'そしてわかっているのは'], ['the more positive ones', '良いつながりを多く'], ['that you could create in your world,', '自分の世界でつくれるほど'], ["the happier you'll be.", 'より幸せになれるということ']] },
+          { ck: [["So that's a pretty simple formula", 'だからそれはかなりシンプルな公式です'], ['that anybody can use today.', '誰でも今日から使える']] },
+          { ck: [['Can I say hello in a more friendly way', 'もっと気さくにあいさつできるだろうか'], ['to more people?', 'もっと多くの人に']] },
+          { ck: [["That's going to increase your happiness.", 'それがあなたの幸福を高めます']] },
+          { ck: [['And I love that', 'そしてそれが大好きなんです'], ["because it's doable for anybody, anywhere.", '誰でも、どこでもできることだから']] },
+        ],
+        terms: [
+          { t: 'research literature', m: '研究文献、これまでの研究', re: 'research literature' },
+          { t: 'ongoing', m: '継続中の', re: 'ongoing' },
+          { t: 'run', m: '運営する、率いる', re: 'run by' },
+          { t: 'barista', m: 'バリスタ（コーヒー店の店員）', re: 'barista' },
+          { t: 'count', m: '数に入る、意味がある', re: 'counts' },
+          { t: 'figure out', m: '理解する、見つけ出す', re: 'figure out' },
+          { t: 'social interaction', m: '人とのやりとり', re: 'social interactions' },
+          { t: 'not that', m: '〜というわけではないが', re: 'not that' },
+          { t: 'crux', m: '核心', re: 'crux' },
+          { t: 'formula', m: '公式', re: 'formula' },
+          { t: 'doable', m: '実行できる', re: 'doable' },
+        ],
+        ja: 'そうですね、研究を参照してみましょう。これまでに行われた中で最も長い幸福の研究がハーバードで今も続いていて、現在はハーバードのロバート・ウォールディンガー教授が率いています。彼らは「何が幸せな人生をつくるのか」を問いました。答えは、人とのつながりが多いほど、というものでした。毎年クリスマスにプレゼントを贈るような深いつながりでなくてもよかったんです。スターバックスの店員との気さくなやりとりも含まれていました。それも数に入るんです。つながりが多ければ多いほど、人生はより幸せでした。そしてそれは人間の脳の進化に行き着きます。私たちの脳には、人とのやりとりをどうすればいいかを理解できるよう進化した領域がたくさんあります。人とのつながりが私たちにとってとても大切だからです。すべてのつながりが良いものだというわけではありません。難しい人間関係もあります。でもそれこそが、私たちを人間たらしめているものの核心です。そして、自分の世界で良いつながりを多くつくれるほど、より幸せになれることがわかっています。ですから、これは誰でも今日から使える、かなりシンプルな公式です。もっと多くの人に、もっと気さくにあいさつできるだろうか。それがあなたの幸福を高めます。誰でも、どこでもできることなので、私はこれが大好きなんです。',
+      },
+    ],
+  },
+  {
+    label: 'パート6', range: '17:28–19:52',
+    paras: [
+      {
+        ts: '17:28', spk: 'AS',
+        gist: '裕福な顧客の中には、1つのことに集中しすぎて人間関係を築かず、引退後に孤独になる人がいる。65歳以上の3分の1が強い孤独を感じており、これは世界共通。金融機関・大学・政府が皆で取り組むべき課題。',
+        sents: [
+          { ck: [["Yeah, it's so true.", 'ええ、本当にそうです']] },
+          { ck: [['You know,', 'じつは'], ['some of the saddest conversations', 'いちばん悲しい会話のいくつかは'], ['that I occasionally have', '私がときどき交わす'], ['with some of our wealthier clients', '比較的裕福なお客さまとの'], ['are people who have really separated,', 'すっかり孤立してしまった人たちとの会話です'], ["they've focused so much on one thing in their life", '人生の1つのことにあまりに集中してきたので'], ["that they haven't spent time", '時間を過ごしてこなかった'], ['with friends or family or their community.', '友人や家族や地域の人たちと']],
+            note: '主語は some of the saddest conversations で、<b>are people who …</b> は「（会話の相手が）〜な人たちだ」という話し言葉的なつなぎ方です。<b>so much … that …</b> は「あまりに〜なので…」。' },
+          { ck: [["And as they've aged,", 'そして年を重ねるにつれて'], ['you know,', 'ほら'], ["they've left work", '仕事を離れ'], ["and suddenly, they're more alone.", '急に孤独になってしまう']] },
+          { ck: [['And the statistics that we see', 'そして私たちが目にしている統計では'], ['is that a third of older people over 65', '65歳を超える高齢者の3分の1が'], ['really do experience', '実際に経験しています'], ['a much greater sense of loneliness.', 'ずっと強い孤独感を']],
+            note: '<b>really do experience</b> の do は強調（実際に経験している）です。' },
+          { ck: [['And as we look around the world,', 'そして世界を見渡すと'], ['that seems to be true,', 'それは本当のようです'], ["whether it's in the UK", 'イギリスであれ'], ['or in China', '中国であれ'], ['or here in the United States.', 'ここアメリカであれ']] },
+          { ck: [['And I think', 'そして思うのは'], ["it's incumbent on all of us,", 'それは私たち全員の責務だということ'], ["whether it's financial services institutions", '金融機関であれ'], ['or universities or governments,', '大学や政府であれ'], ['to find a way to address that', 'それに取り組む方法を見つけること'], ['and keep those people engaged in the community.', 'そしてそういう人たちが地域とつながり続けられるようにすること']],
+            note: '<b>it\'s incumbent on A to do</b> は「〜するのはAの責務だ」。it は後ろの to find … を指します。' },
+        ],
+        terms: [
+          { t: 'occasionally', m: 'ときどき', re: 'occasionally' },
+          { t: 'wealthier clients', m: '比較的裕福な顧客', re: 'wealthier clients' },
+          { t: 'separated', m: '（人から）離れた、孤立した', re: 'separated' },
+          { t: 'age', m: '年を取る', re: 'aged' },
+          { t: 'statistics', m: '統計', re: 'statistics' },
+          { t: 'loneliness', m: '孤独', re: 'loneliness' },
+          { t: 'incumbent on', m: '〜の責務である', re: 'incumbent on' },
+          { t: 'institution', m: '機関', re: 'institutions' },
+          { t: 'engaged in', m: '〜に関わって、参加して', re: 'engaged in' },
+        ],
+        ja: 'ええ、本当にそうです。私がときどき比較的裕福なお客さまと交わす会話の中で、いちばん悲しいのは、すっかり孤立してしまった人たちとの話です。人生の1つのことにあまりに集中してきたために、友人や家族、地域の人たちと時間を過ごしてこなかった。そして年を重ねて仕事を離れると、急に孤独になってしまうんです。私たちが目にしている統計では、65歳以上の高齢者の3分の1が、実際にずっと強い孤独を感じています。世界を見渡しても、イギリスでも中国でも、ここアメリカでも、それは同じようです。金融機関であれ大学であれ政府であれ、それに取り組む方法を見つけ、そういう人たちが地域とつながり続けられるようにするのは、私たち全員の責務だと思います。',
+      },
+      {
+        ts: '18:19', spk: 'WS',
+        gist: '多くの学生は質問があっても手を挙げるのが不安。自分も同じだったので、授業の前後に残って質問しやすくした。自分の不安を他人への思いやりに変えられた。お金の不安が解消したら、そのコツを人に伝えるのも寛大さの一つの形。',
+        sents: [
+          { ck: [['So I’m a professor at New York University,', '私はニューヨーク大学の教授ですが'], ['and I think everybody can relate to the anxiety', '誰もがその不安に共感できると思います'], ['of you have a question,', '質問があるのに'], ['but do you really want to raise your hand', '本当に手を挙げて'], ['and ask it in front of the whole class?', 'クラス全員の前で聞きたいか、という']],
+            note: '<b>the anxiety of</b> の後に、頭の中の声がそのまま続いています（質問はあるけれど、本当にみんなの前で手を挙げて聞きたい？という不安）。<b>relate to</b> は「共感する」。' },
+          { ck: [['I had that same anxiety', '私も同じ不安を抱えていました'], ['through my entire educational experience.', '学生時代を通してずっと']] },
+          { ck: [['But I went into academia.', 'それでも私は学問の道に進みました']] },
+          { ck: [['So one day', 'そしてある日'], ['I found myself at the front of the classroom,', '気づけば教室の前に立っていて'], ['and I knew', 'そしてわかっていました'], ['that 80 percent of those students had questions for me.', '学生の8割が私に質問を持っていることを']],
+            note: '<b>find oneself …</b> は「気づけば〜にいる」。' },
+          { ck: [['But, you know,', 'でも'], ['were anxious about doing that.', 'それをするのを不安に思っていた']],
+            note: '前の文の続きで、主語の they（学生たち）が省略されています。' },
+          { ck: [['And so I used that knowledge', 'そこで私はその知識を使いました'], ['about my own anxiety', '自分自身の不安についての'], ['to relieve their anxiety.', '彼らの不安を和らげるために']] },
+          { ck: [['So I came early', 'だから早く来て'], ['and I stayed late,', '遅くまで残り'], ['and I answered any questions.', 'どんな質問にも答えました']] },
+          { ck: [['I just hung out by myself', 'ただ一人でそこにいるようにしたんです'], ['so they could come up and ask me.', '彼らが近づいてきて質問できるように']] },
+          { ck: [['And I realized', 'そして気づきました'], ['that was a superpower of my own anxiety.', 'それが自分の不安が持つ特別な力だと']] },
+          { ck: [['That I turned my own anxiety,', 'つまり自分の不安を'], ['and I turned it on the outside.', '外に向けたということです']],
+            note: '前の文の that 節の続きです（私が気づいたのは、自分の不安を外に向けたということ）。' },
+          { ck: [['And I made it an act of compassion or empathy', 'そしてそれを思いやりや共感の行為にしました'], ['to make sure that everybody could ask the question.', '誰もが質問できるようにするための']] },
+          { ck: [["And it's not just this,", 'そしてこれだけではありません'], ['take your biggest anxiety.', 'いちばん大きな不安を例にとってください']],
+            note: '<b>take A</b> は「Aを例にとってみてください」。' },
+          { ck: [['Take your financial anxiety.', 'お金の不安を例にとってみてください']] },
+          { ck: [['You know,', 'ほら'], ['can you have a conversation?', '話し合うことができますか']] },
+          { ck: [['If you had a great conversation with your banker', '銀行の担当者といい話ができて'], ['and you learned a great banking trick', '銀行のうまいコツを知り'], ['that relieved that anxiety,', 'それで不安が和らいだなら'], ['can you share it with people?', 'それを人に伝えられますか']] },
+          { ck: [['So I think', 'だから思うのは'], ['that is a wonderful way', 'それは素晴らしい方法だということ'], ['to take the resolution of your anxiety', '自分の不安が解消されたことを生かして'], ['and help others with it.', '他の人を助ける']] },
+          { ck: [["And that's also a form of generosity.", 'そしてそれは寛大さの一つの形でもあります']] },
+        ],
+        terms: [
+          { t: 'relate to', m: '〜に共感する', re: 'relate to' },
+          { t: 'academia', m: '学問の世界、大学', re: 'academia' },
+          { t: 'find oneself', m: '気づけば〜にいる', re: 'found myself' },
+          { t: 'relieve', m: '和らげる', re: 'relieve' },
+          { t: 'hang out', m: '（その場に）いる、ぶらぶらする', re: 'hung out' },
+          { t: 'superpower', m: '特別な力、強み', re: 'superpower' },
+          { t: 'compassion', m: '思いやり', re: 'compassion' },
+          { t: 'empathy', m: '共感', re: 'empathy' },
+          { t: 'trick', m: 'コツ、秘訣', re: 'trick' },
+          { t: 'resolution', m: '解決、解消', re: 'resolution' },
+          { t: 'generosity', m: '寛大さ、気前のよさ', re: 'generosity' },
+        ],
+        ja: '私はニューヨーク大学の教授ですが、質問があるのに、本当にクラス全員の前で手を挙げて聞きたいだろうか、という不安には誰もが共感できると思います。私も学生時代を通してずっと同じ不安を抱えていました。それでも私は学問の道に進みました。そしてある日、気づけば教室の前に立っていて、学生の8割が私に質問を持っているのに、それをするのを不安に思っていることがわかっていました。そこで私は、自分自身の不安についての知識を使って、彼らの不安を和らげることにしました。早く来て遅くまで残り、どんな質問にも答えました。学生が近づいてきて質問できるように、ただ一人でそこにいるようにしたんです。そして、それが自分の不安が持つ特別な力だと気づきました。自分の不安を外に向けたんです。そしてそれを、誰もが質問できるようにするための思いやりや共感の行為にしました。これだけではありません。いちばん大きな不安、たとえばお金の不安を考えてみてください。話し合うことはできますか。銀行の担当者といい話ができて、不安を和らげてくれる銀行のうまいコツを知ったなら、それを人に伝えられますか。それは、自分の不安が解消されたことを生かして他の人を助ける、素晴らしい方法だと思います。そしてそれは、寛大さの一つの形でもあります。',
+      },
+    ],
+  },
+  {
+    label: 'パート7', range: '19:52–22:30',
+    paras: [
+      {
+        ts: '19:52', spk: 'AS',
+        gist: '不安を良いものに変えるにはどうすればいいか。',
+        sents: [
+          { ck: [["It's fascinating.", 'とても興味深いです']] },
+          { ck: [['So how do we take that anxiety then', 'では、どうすればその不安を'], ['and turn it into a good thing?', '良いものに変えられるでしょう']] },
+        ],
+        terms: [
+          { t: 'fascinating', m: 'とても興味深い', re: 'fascinating' },
+          { t: 'turn A into B', m: 'AをBに変える', re: 'turn it into' },
+        ],
+        ja: 'とても興味深いですね。では、どうすればその不安を良いものに変えられるのでしょう。',
+      },
+      {
+        ts: '19:57', spk: 'WS',
+        gist: 'あいづち。',
+        sents: [
+          { ck: [['Yeah.', 'ええ']] },
+        ],
+        terms: [],
+        ja: 'ええ。',
+      },
+      {
+        ts: '19:58', spk: 'AS',
+        gist: '鈴木さんは本で、不安を「対処すべきことを知らせる警告のサイン」として書いていた。どうすれば人がそれを生かして行動できるか。',
+        sents: [
+          { ck: [['And we could take the financial anxiety', 'お金の不安を例にとってもいいし'], ['or any other anxiety.', 'ほかのどんな不安でもいい']] },
+          { ck: [['How do people feel that?', '人はそれをどう感じるのか']] },
+          { ck: [['And I think', 'そして確か'], ['in your book', 'あなたの本の中で'], ['you talked about anxiety as a warning sign.', '不安を警告のサインとして書いていましたね']] },
+          { ck: [["That it's something", 'それは〜なのだと'], ['that maybe you should be dealing with.', 'もしかしたら対処すべきこと']],
+            note: '前の文の warning sign の中身を、That 節で付け足しています。' },
+          { ck: [['How do we get people', 'どうすれば人々に〜してもらえるか'], ['to use that', 'それを生かし'], ['and to act on it?', 'そしてそれをもとに行動するように']],
+            note: '<b>get A to do</b> は「Aに〜させる、〜してもらう」。' },
+        ],
+        terms: [
+          { t: 'warning sign', m: '警告のサイン', re: 'warning sign' },
+          { t: 'deal with', m: '〜に対処する', re: 'dealing with' },
+          { t: 'get A to do', m: 'Aに〜してもらう', re: 'get people' },
+          { t: 'act on', m: '〜に基づいて行動する', re: 'act on' },
+        ],
+        ja: 'お金の不安でも、ほかのどんな不安でもいいのですが、人はそれをどう感じるのでしょう。確かあなたは本の中で、不安を警告のサイン、つまり対処したほうがいいかもしれないことを知らせるものとして書いていましたね。どうすれば人がそれを生かし、行動に移せるようになるでしょう。',
+      },
+      {
+        ts: '20:16', spk: 'WS',
+        gist: '不安を消そうとするのではなく、捉え方を変えることが大切。不安は身を守るために進化した、注意を向けるべきものを照らすしくみ。人が心配するのは仕事・お金・人間関係など大切なことで、不安は何が最も大切かを教えてくれる。',
+        sents: [
+          { ck: [["That's such a good question.", 'それはとてもいい質問です']] },
+          { ck: [["And it's really about shifting your mindset", 'それは考え方を切り替えることなんです'], ['about how you think about anxiety.', '不安をどう捉えるかについての']] },
+          { ck: [['Most people', 'たいていの人は'], ['just want to get rid of all their anxiety.', '不安をすべて取り除きたいと思うだけです']] },
+          { ck: [["They don't want to think about it,", '不安について考えたくないし'], ['they want to kick it out the door.', '追い出してしまいたいんです']] },
+          { ck: [['But anxiety evolved for a reason.', 'でも不安が進化してきたのには理由があります']] },
+          { ck: [['Anxiety evolved', '不安は進化してきた'], ['to help protect us.', '私たちを守るために']] },
+          { ck: [['It is a protective mechanism.', 'それは身を守るしくみなんです']] },
+          { ck: [['To shine a little light,', '少し光を当てて'], ['say,', 'こう言うためのもの'], ['you should be paying attention to this,', 'これに注意を向けるべきだ'], ['you should be paying attention to that.', 'あれに注意を向けるべきだ、と']],
+            note: '前の文の続きで、protective mechanism の役割を to 不定詞で説明しています（少し光を当てて、〜に注意を向けるべきだと知らせるための）。' },
+          { ck: [['And that is what people need to appreciate.', 'そしてそれこそ、人々がしっかり理解すべきことです']] },
+          { ck: [['Think about,', '考えてみてください'], ['do you lay awake at night thinking,', '夜、眠れずに横になりながら考えますか'], ['"Oh my God,', '「ああ、どうしよう'], ["I didn't get to watch that last series on Netflix.", 'ネットフリックスのあの最新シリーズを見られなかった'], ['I\'m so worried about that."', 'それがすごく心配」と']],
+            note: '<b>lay awake</b> は本来 lie awake（眠れずに横になっている）です。' },
+          { ck: [["No, you don't worry about that.", 'いいえ、そんなことは心配しません']] },
+          { ck: [['You worry about your work,', '心配するのは仕事のこと'], ['your finances,', 'お金のこと'], ['your relationships.', '人間関係のことです']] },
+          { ck: [['These are things that matter to you.', 'これらはあなたにとって大切なことです']] },
+          { ck: [['And so', 'だから'], ['what your anxiety is doing', 'あなたの不安がしていることは'], ['is really showing you', 'まさにあなたに示すことなんです'], ['what matters most.', '何が最も大切かを']] },
+          { ck: [['And actually', 'そして実は'], ['going back to our first question,', '最初の問いに戻ると'], ['what makes a good life for you.', 'あなたにとって何が良い人生をつくるのか、ということです']],
+            note: '動詞のない文で、「（不安が示しているのは）最初の問い、つまりあなたにとって何が良い人生か、につながる」という意味です。' },
+        ],
+        terms: [
+          { t: 'shift your mindset', m: '考え方を切り替える', re: 'shifting your mindset' },
+          { t: 'get rid of', m: '取り除く', re: 'get rid of' },
+          { t: 'kick A out the door', m: 'Aを追い出す', re: 'kick it out the door' },
+          { t: 'for a reason', m: '理由があって', re: 'for a reason' },
+          { t: 'protective mechanism', m: '身を守るしくみ', re: 'protective mechanism' },
+          { t: 'shine a light', m: '光を当てる', re: 'shine a little light' },
+          { t: 'appreciate', m: '（大切さを）しっかり理解する', re: 'appreciate' },
+          { t: 'lay awake', m: '横になったまま眠れずにいる（正しくは lie awake）', re: 'lay awake' },
+          { t: 'finances', m: 'お金のこと、財政状態', re: 'finances' },
+          { t: 'matter', m: '重要である', re: 'matter' },
+        ],
+        ja: 'とてもいい質問ですね。それは、不安をどう捉えるかについて考え方を切り替える、ということなんです。たいていの人は、不安をすべて取り除きたいと思うだけです。不安について考えたくないし、追い出してしまいたい。でも不安が進化してきたのには理由があります。不安は私たちを守るために進化してきました。身を守るしくみなんです。少し光を当てて、これに注意を向けるべきだ、あれに注意を向けるべきだと知らせるためのものです。それこそ、人々がしっかり理解すべきことです。考えてみてください。夜、眠れずに「ああ、ネットフリックスのあの最新シリーズを見られなかった。それがすごく心配」と思いますか。いいえ、そんなことは心配しません。心配するのは仕事のこと、お金のこと、人間関係のことです。これらはあなたにとって大切なことです。ですから、あなたの不安がしていることは、何が最も大切かを示すことなんです。そして実はそれが、最初の問い、あなたにとって何が良い人生をつくるのか、につながるんです。',
+      },
+      {
+        ts: '21:15', spk: 'WS',
+        gist: '不安を「危険から守ってくれる道しるべ」と捉え直せば、1日・1週間・1年の行動に優先順位をつける道具になる。',
+        sents: [
+          { ck: [['If you flip it that way', 'そうやって見方をひっくり返し'], ['and start to use your anxiety as a signpost', '不安を道しるべとして使い始め'], ['to realize', '気づくようになれば'], ['it is helping to protect you', '不安があなたを守ってくれているのだと'], ['from things that could be a danger,', '危険になりうるものから'], ['then it becomes a tool', 'そのとき不安は道具になります'], ['that you can use', 'あなたが使える'], ["to order what you're going to do", 'やることに優先順位をつけるために'], ['in your day and in your week and in the next year.', '1日の中で、1週間の中で、そして来年に向けて']],
+            note: '長い1文です。If … の条件（見方を変えて不安を道しるべにする）が先に来て、then 以下で「不安は使える道具になる」と結論を言っています。<b>order</b> はここでは動詞で「順序立てる、優先順位をつける」。' },
+        ],
+        terms: [
+          { t: 'flip', m: 'ひっくり返す、反転させる', re: 'flip' },
+          { t: 'signpost', m: '道しるべ', re: 'signpost' },
+          { t: 'order', m: '（動詞）順序立てる、優先順位をつける', re: 'to order' },
+        ],
+        ja: 'そうやって見方をひっくり返し、不安を道しるべとして使い始めて、不安が危険になりうるものからあなたを守ってくれているのだと気づけば、不安は、1日の中で、1週間の中で、そして来年に向けて、やるべきことに優先順位をつけるために使える道具になります。',
+      },
+      {
+        ts: '21:37', spk: 'AS',
+        gist: '不安は、チャンスを知らせ、リスクを管理するものでもある。',
+        sents: [
+          { ck: [["That's fantastic.", '素晴らしいですね']] },
+          { ck: [['So anxiety', 'つまり不安は'], ['as an opportunity alerter', 'チャンスを知らせるものであり'], ['and a risk management.', 'リスク管理でもある、と']],
+            note: '動詞のない文で、相手の話を「つまり〜ということですね」とまとめています。alerter は alert（知らせる）から作った言い方です。' },
+          { ck: [["That's an absolutely fantastic thing.", 'それは本当に素晴らしいことです']] },
+        ],
+        terms: [
+          { t: 'alerter', m: '知らせるもの（alert から作った語）', re: 'alerter' },
+          { t: 'risk management', m: 'リスク管理', re: 'risk management' },
+        ],
+        ja: '素晴らしいですね。つまり不安は、チャンスを知らせてくれるものであり、リスク管理でもあるということですね。本当に素晴らしい考え方です。',
+      },
+      {
+        ts: '21:46', spk: 'WS',
+        gist: '銀行員はお金についての「不安探知機」で、問題を先回りして防ぐ道具をくれる。お金の不安は誰にでもある。基本から始め、不安の見方を変えて自分の味方にすることが大切。',
+        sents: [
+          { ck: [['I mean,', 'つまり'], ['in a sense,', 'ある意味で'], ['bankers are your anxiety detectors', '銀行員はあなたの不安探知機なんです'], ['for your finances.', 'お金についての']] },
+          { ck: [['This is what they know in great detail,', 'これこそ彼らが詳しく知っていることです'], ['what you should be looking for.', 'あなたが何に気をつけるべきかを']],
+            note: '<b>what you should be looking for</b> は、前の what they know を言い直したものです。' },
+          { ck: [['And they cut that off at the pass', 'そして先回りしてそれを食い止め'], ['and give you tools', '道具を与えてくれる'], ['to be able not to worry about that.', 'それを心配しなくて済むように']] },
+          { ck: [['And I say that,', 'そしてこう言うのは'], ['I talk a lot about my own financial anxieties', '自分のお金の不安についてたくさん書いているからです'], ['in the book,', '本の中で'], ["because it's not just mine,", 'それは私だけのものではなく'], ["it's everybody's.", 'みんなのものだから']],
+            note: '<b>And I say that,</b> と言いかけてから、I talk a lot about … と言い直しています。' },
+          { ck: [["Everybody's worried about finances.", '誰もがお金のことを心配しています']] },
+          { ck: [['No matter who you are.', 'あなたが誰であろうと']] },
+          { ck: [['Are you doing it the right way?', '正しいやり方をしているか']] },
+          { ck: [['Are you investing?', '投資しているか']] },
+          { ck: [['What is investing?', '投資とは何か']] },
+          { ck: [['Start with the basics.', '基本から始めましょう']] },
+          { ck: [["So it's such an important one to appreciate,", 'だからこれは、しっかり理解しておくべき大切なことです'], ['how you can flip the script', 'どうやって見方をひっくり返し'], ['and use it to your advantage.', 'それを自分に有利に使えるか']],
+            note: 'it は後ろの how 以下を指します。<b>flip the script</b> は「筋書きをひっくり返す＝見方や立場を逆転させる」。' },
+        ],
+        terms: [
+          { t: 'in a sense', m: 'ある意味で', re: 'in a sense' },
+          { t: 'detector', m: '探知機', re: 'detectors' },
+          { t: 'in great detail', m: 'とても詳しく', re: 'in great detail' },
+          { t: 'cut A off at the pass', m: '先回りしてAを食い止める', re: 'cut that off at the pass' },
+          { t: 'no matter who', m: '誰であろうと', re: 'No matter who' },
+          { t: 'basics', m: '基本', re: 'basics' },
+          { t: 'flip the script', m: '見方や立場をひっくり返す', re: 'flip the script' },
+          { t: 'to your advantage', m: '自分に有利に', re: 'to your advantage' },
+        ],
+        ja: 'つまり、ある意味で、銀行員はお金に関するあなたの不安探知機なんです。何に気をつけるべきかを、彼らはとても詳しく知っています。そして問題を先回りして食い止め、それを心配しなくて済むような道具を与えてくれます。私がこう言うのは、本の中で自分のお金の不安についてたくさん書いているからです。それは私だけのものではなく、みんなのものです。誰であろうと、誰もがお金のことを心配しています。正しいやり方をしているか。投資しているか。そもそも投資とは何か。基本から始めましょう。ですから、どうすれば見方をひっくり返して、不安を自分に有利に使えるかを理解しておくのは、とても大切なことなんです。',
+      },
+    ],
+  },
+  {
+    label: 'パート8', range: '22:30–24:44',
+    paras: [
+      {
+        ts: '22:30', spk: 'AS',
+        gist: '5人に2人は人生でお金が不安定な時期を経験する。起こりうることを理解し、手元資金や保険で前もって備えることが大切。銀行が提供するデジタルツールを使って学ぶと、不安はかなり和らぐ。',
+        sents: [
+          { ck: [['Now we recognize', 'さて、私たちが認識しているのは'], ['that unfortunately for all of us,', '残念ながら私たち全員にとって'], ['two out of five of us', '5人に2人が'], ['will find some period of financial instability', 'お金が不安定な時期を経験するということ'], ['in life.', '人生の中で']],
+            note: '<b>two out of five</b> は「5人に2人」。' },
+          { ck: [['You know,', 'たとえば'], ["we'll lose our jobs,", '仕事を失ったり'], ['our children will get sick,', '子どもが病気になったり'], ['we might get sick.', '自分が病気になったりするかもしれない']] },
+          { ck: [['So understanding', 'だから理解すること'], ['and having the financial literacy', 'そしてお金の知識を持つこと'], ['to understand that that might happen', 'そういうことが起こりうると理解できる'], ['and thinking through ahead of time', 'そして前もってよく考えておくこと'], ['what might I need to prepare for that', 'それに備えて何が必要か'], ['is also really important.', 'それもとても大切です']],
+            note: 'understanding … and having … and thinking through … の3つが主語で、述語は最後の is also really important。<b>what might I need</b> は、自分への問いをそのまま疑問文の語順で言っています。' },
+          { ck: [['So that cash on hand,', 'だから手元資金'], ['or if you do have the ability,', 'あるいは余裕があるなら'], ['a little bit of insurance', '少しの保険'], ['to cover some of those things,', 'そうしたことのいくつかに備えるための'], ['really, really important.', 'それが本当に大切です']],
+            note: '動詞のない文です（手元資金や保険が、本当に大切）。<b>if you do have</b> の do は強調です。' },
+          { ck: [['But again,', 'でももう一度'], ['going back to our conversation on curiosity,', '好奇心の話に戻ると'], ["making sure that you've taken advantage of the digital tools,", 'デジタルツールを活用するようにすること'], ['the planning tools,', '計画用のツールを'], ['there are so many goal planners and trackers and budgeting tools online.', 'ネットには目標を立てるツールや記録ツールや家計管理ツールがたくさんあります']],
+            note: 'making sure … の文が途中で切れ、there are … と新しい文が始まっています。' },
+          { ck: [['Almost all banks provide them.', 'ほとんどの銀行が提供しています']] },
+          { ck: [['And certainly we do.', 'もちろん私たちも']] },
+          { ck: [['Have a look at them', 'それらを見てみて'], ['and really just get financially educated,', 'とにかくお金について学んでください'], ['because I think that relieves a lot of the anxiety.', 'それで不安がかなり和らぐと思うから']] },
+          { ck: [['It really does.', '本当にそうなんです']] },
+        ],
+        terms: [
+          { t: 'two out of five', m: '5人に2人', re: 'two out of five' },
+          { t: 'financial instability', m: 'お金の面での不安定さ', re: 'financial instability' },
+          { t: 'financial literacy', m: 'お金に関する知識', re: 'financial literacy' },
+          { t: 'think through', m: 'よく考え抜く', re: 'thinking through' },
+          { t: 'ahead of time', m: '前もって', re: 'ahead of time' },
+          { t: 'cash on hand', m: '手元資金', re: 'cash on hand' },
+          { t: 'cover', m: '（費用などを）まかなう、補償する', re: 'to cover' },
+          { t: 'take advantage of', m: '〜を活用する', re: 'taken advantage of' },
+          { t: 'tracker', m: '記録・管理のツール', re: 'trackers' },
+          { t: 'budgeting tool', m: '家計管理ツール', re: 'budgeting tools' },
+          { t: 'get educated', m: '学ぶ、知識をつける', re: 'financially educated' },
+        ],
+        ja: 'さて、残念ながら、私たちの5人に2人は、人生の中でお金が不安定な時期を経験します。仕事を失ったり、子どもが病気になったり、自分が病気になったりするかもしれません。ですから、そういうことが起こりうると理解できるお金の知識を持ち、それに備えて何が必要かを前もってよく考えておくことも、とても大切です。手元資金、あるいは余裕があれば、そうしたことのいくつかに備える少しの保険。それが本当に大切です。でも、もう一度好奇心の話に戻ると、デジタルツールや計画用のツールを活用することです。ネットには目標を立てるツール、記録ツール、家計管理ツールがたくさんあります。ほとんどの銀行が提供していますし、もちろん私たちもです。それらを見てみて、とにかくお金について学んでください。それで不安がかなり和らぐと思います。本当にそうなんです。',
+      },
+      {
+        ts: '23:30', spk: 'WS',
+        gist: '多くの人の助けになる話。聞いていて肩の力が抜けた。',
+        sents: [
+          { ck: [['No,', 'いえ'], ['I think', '思います'], ['that will help a lot of people.', 'それは多くの人の助けになると']],
+            note: '<b>No</b> は否定ではなく、「いえいえ、本当に」と相手の話を受け止める言い方です。' },
+          { ck: [['It made my shoulders go down.', '肩の力が抜けました']] },
+          { ck: [['There you go.', 'ほらね']] },
+        ],
+        terms: [
+          { t: 'my shoulders go down', m: '肩の力が抜ける、ほっとする', re: 'shoulders go down' },
+          { t: 'There you go', m: 'ほらね、そういうこと', re: 'There you go' },
+        ],
+        ja: 'いえ、それは多くの人の助けになると思います。肩の力が抜けました。ほらね。',
+      },
+      {
+        ts: '23:37', spk: 'AS',
+        gist: '脳のために毎日するべきたった1つのことは何か。',
+        sents: [
+          { ck: [['So I was really curious,', 'ぜひ聞きたかったのですが'], ['world-famous neuroscientist,', '世界的に有名な神経科学者さん'], ['what is the one thing', 'たった1つのことは何でしょう'], ['that we should all be doing for our brain', '私たち皆が脳のためにするべき'], ['every day?', '毎日']],
+            note: '<b>world-famous neuroscientist</b> は相手への呼びかけです（世界的に有名な神経科学者のあなたに聞きたいのですが）。' },
+          { ck: [['What should we be doing?', '私たちは何をするべきでしょう']] },
+        ],
+        terms: [
+          { t: 'world-famous', m: '世界的に有名な', re: 'world-famous' },
+        ],
+        ja: 'ぜひお聞きしたかったのですが、世界的に有名な神経科学者のあなたに。私たち皆が脳のために毎日するべき、たった1つのことは何でしょう。何をするべきでしょうか。',
+      },
+      {
+        ts: '23:46', spk: 'WS',
+        gist: '答えは「体を動かすこと」。10分歩くだけで脳内物質が満ち、不安やうつが和らぐ。続ければ脳に成長因子も与え、脳を大きく健康にする。何歳からでも始められる。',
+        sents: [
+          { ck: [['I’m going to say:', 'こう答えます'], ['moving your body.', '体を動かすこと']] },
+          { ck: [['Just 10 minutes of walking,', 'たった10分歩くだけで'], ['that everybody anywhere could do,', '誰でもどこでもできることですが'], ['decreases your anxiety and depression levels', '不安やうつの度合いが下がります'], ['because you are flooding your brain,', 'なぜなら脳を満たしているから'], ['even with a 10-minute walk,', 'たった10分の散歩でも'], ['with this neurochemical bubble bath', 'この脳内物質の泡風呂で'], ['of dopamine, serotonin, noradrenaline.', 'ドーパミン、セロトニン、ノルアドレナリンの']],
+            note: '主語は Just 10 minutes of walking で、述語は decreases。間の that everybody anywhere could do は挟み込みの補足です。<b>flood A with B</b>（AをBで満たす）の with が離れています。' },
+          { ck: [['And then think about', 'そして考えてみてください'], ['what that does,', 'それが何をもたらすか'], ['that bubble bath of neurochemicals,', 'その脳内物質の泡風呂が'], ['if you do it regularly,', 'それを定期的に続けたら'], ['not just for a day,', '1日だけでなく'], ['but over weeks, over months, over years.', '何週間、何か月、何年にもわたって']] },
+          { ck: [['You are literally giving your brain', '文字どおり脳に与えているんです'], ['not only good neurochemicals', '良い脳内物質だけでなく'], ['but growth factors.', '成長因子も']] },
+          { ck: [['You are making it,', '脳をこうしているんです'], ['as I like to say,', '私がよく言うように'], ['big and fat and fluffy.', '大きく、ふっくら、ふわふわに']] },
+          { ck: [['And for this', 'そしてこれは'], ['you can start any time.', 'いつからでも始められます']] },
+          { ck: [["Maybe you're a couch potato", 'たとえソファでごろごろしてばかりだったとしても'], ["until you're 75.", '75歳まで']] },
+          { ck: [['Guess what?', 'でもね']] },
+          { ck: [['You get up and start walking,', '立ち上がって歩き始めれば'], ['you get that bubble bath.', 'その泡風呂が得られるんです']],
+            note: '「〜すれば…になる」を、if を使わずに2つの文を並べて言う話し言葉の言い方です。' },
+          { ck: [['So moving your body', 'だから体を動かすことが'], ['is my answer to that question.', 'その質問への私の答えです']] },
+        ],
+        terms: [
+          { t: 'depression', m: 'うつ', re: 'depression' },
+          { t: 'flood A with B', m: 'AをBで満たす', re: 'flooding' },
+          { t: 'neurochemical', m: '脳内物質（の）', re: 'neurochemical' },
+          { t: 'regularly', m: '定期的に', re: 'regularly' },
+          { t: 'literally', m: '文字どおり', re: 'literally' },
+          { t: 'growth factors', m: '成長因子（神経の成長を助ける物質）', re: 'growth factors' },
+          { t: 'fluffy', m: 'ふわふわの', re: 'fluffy' },
+          { t: 'couch potato', m: 'ソファでごろごろしてばかりの人', re: 'couch potato' },
+          { t: 'Guess what?', m: 'ねえ聞いて、でもね（意外なことを言う前置き）', re: 'Guess what' },
+        ],
+        ja: '答えは「体を動かすこと」です。誰でもどこでもできる、たった10分歩くだけで、不安やうつの度合いが下がります。10分の散歩でも、脳がドーパミン、セロトニン、ノルアドレナリンという脳内物質の泡風呂に満たされるからです。そして、その脳内物質の泡風呂を、1日だけでなく何週間、何か月、何年と定期的に続けたら何が起きるか考えてみてください。あなたは文字どおり、脳に良い脳内物質だけでなく、成長因子も与えているんです。私がよく言うように、脳を大きく、ふっくら、ふわふわにしているんです。しかも、これはいつからでも始められます。75歳までソファでごろごろしてばかりだったとしても大丈夫。立ち上がって歩き始めれば、その泡風呂が得られます。ですから、その質問への私の答えは「体を動かすこと」です。',
+      },
+    ],
+  },
+  {
+    label: 'パート9', range: '24:44–27:26',
+    paras: [
+      {
+        ts: '24:44', spk: 'WS',
+        gist: '若い人が将来のお金の計画を始めるには、どんなアドバイスをするか。',
+        sents: [
+          { ck: [['So for you,', 'ではあなたには'], ['I would love to ask a more long-term question.', 'もっと長い目で見た質問をしたいと思います']] },
+          { ck: [['What advice would you give to young people', '若い人たちにどんなアドバイスをしますか'], ['about how to start planning their financial future?', 'お金の将来の計画をどう始めればいいかについて']] },
+        ],
+        terms: [
+          { t: 'long-term', m: '長期的な', re: 'long-term' },
+          { t: 'financial future', m: 'お金の面での将来', re: 'financial future' },
+        ],
+        ja: 'ではあなたには、もっと長い目で見た質問をしたいと思います。若い人たちが将来のお金の計画を立て始めるにあたって、どんなアドバイスをしますか。',
+      },
+      {
+        ts: '24:58', spk: 'AS',
+        gist: '若い人はとにかく始めること。早いうちから、こまめに貯蓄と投資を。貯蓄は複利の力、投資はタイミングを狙うより長く市場にいること。',
+        sents: [
+          { ck: [['To get ahead as a young person,', '若い人が先に進むには'], ["you've got to get started.", 'とにかく始めることです']] },
+          { ck: [["It's as simple as that.", 'それだけのことです']] },
+          { ck: [["You've got to get started.", '始めなければなりません']] },
+          { ck: [['So what am I saying', 'では何を言いたいかというと'], ['to get started by doing,', '何をして始めるかというと'], ["you've got to start to save and invest.", '貯蓄と投資を始めることです']],
+            note: '話しながら言い直していて、言いたいのは「始めるというのは、貯蓄と投資を始めるということ」です。' },
+          { ck: [['Early and often.', '早いうちから、こまめに']] },
+          { ck: [["And it's not complicated,", '複雑なことではありません'], ["it's not rocket science.", '難しいことではないんです']],
+            note: '<b>it\'s not rocket science</b> は「（ロケット工学ほど）難しいことではない」という決まり文句です。' },
+          { ck: [['On the saving side,', '貯蓄について言えば'], ["it's the power of compounding interest.", '複利の力です']] },
+          { ck: [['And on the investing side,', 'そして投資について言えば'], ["it's time in the market", '市場に長くいることです'], ['rather than timing the market.', 'タイミングを狙うのではなく']],
+            note: '<b>time in the market</b> と <b>timing the market</b> の言葉遊びです。売買のタイミングを狙うより、長く市場にお金を置いておくほうが大切、という投資の格言です。' },
+          { ck: [['So just put your money in the market', 'だからとにかくお金を市場に入れて'], ['and get started.', '始めることです']] },
+          { ck: [["That's the most important thing to do", 'それが最も大切なことです'], ['to start.', '始めるにあたって']] },
+        ],
+        terms: [
+          { t: 'get ahead', m: '成功する、先に進む', re: 'get ahead' },
+          { t: 'get started', m: '始める', re: 'get started' },
+          { t: 'as simple as that', m: 'それだけのこと', re: 'as simple as that' },
+          { t: 'early and often', m: '早いうちから、こまめに', re: 'Early and often' },
+          { t: 'complicated', m: '複雑な', re: 'complicated' },
+          { t: 'not rocket science', m: 'それほど難しいことではない', re: 'not rocket science' },
+          { t: 'compounding interest', m: '複利', re: 'compounding interest' },
+          { t: 'time in the market', m: '市場に長くお金を置いておくこと', re: 'time in the market' },
+          { t: 'timing the market', m: '売買のタイミングを狙うこと', re: 'timing the market' },
+        ],
+        ja: '若い人が先に進むには、とにかく始めることです。それだけのことです。始めなければなりません。何をして始めるかというと、貯蓄と投資を始めることです。早いうちから、こまめに。複雑なことではありませんし、難しいことでもありません。貯蓄については複利の力。投資については、タイミングを狙うより、長く市場にいること。ですから、とにかくお金を市場に入れて始めてください。それが、始めるうえで最も大切なことです。',
+      },
+      {
+        ts: '25:32', spk: 'AS',
+        gist: '高金利のカードの借金は先に返すこと。資産づくりを始める年齢は世代ごとに早くなっている。少額から始められるので、少しずつ続けて貯め、長く市場にいることと複利の恩恵を受けるのが大切。',
+        sents: [
+          { ck: [['Now if I were looking at my children,', 'もし自分の子どもたちに言うなら'], ['I would also say:', 'こうも言うでしょう'], ['and pay down that expensive credit card debt, please,', 'それから、高いクレジットカードの借金は返してね、と'], ["because there's not much point investing", 'なぜなら投資してもあまり意味がないから'], ["if you're paying significant charges on expensive debt.", '高い借金に多額の利息を払っているなら']],
+            note: '<b>there\'s not much point (in) doing</b> は「〜してもあまり意味がない」。' },
+          { ck: [["So make sure that that's gone.", 'だから、それはなくしておくこと']] },
+          { ck: [["And once you've got that started,", 'そしていったん始められたら'], ["that's a wonderful thing.", 'それは素晴らしいことです']] },
+          { ck: [["And we're seeing actually", 'そして実際に見えてきているのは'], ['that the generations are starting earlier and earlier.', '世代が進むにつれて、始めるのがどんどん早くなっていること']] },
+          { ck: [['So Gen Z,', 'Z世代は'], ["they're starting in their early 20s.", '20代前半で始めています']] },
+          { ck: [['The millennials started in their mid-20s.', 'ミレニアル世代は20代半ばで始めました']] },
+          { ck: [['Gen X,', 'X世代の'], ['we started in our early 30s.', '私たちは30代前半で始めました']] },
+          { ck: [['The boomers in their mid-30s.', 'ベビーブーマー世代は30代半ば']] },
+          { ck: [["So they're starting earlier,", 'つまり始めるのが早くなっていて'], ["that's fantastic.", 'それは素晴らしいことです']] },
+          { ck: [['And I think', 'そして思うのは'], ['some of that’s technology,', 'その一部はテクノロジーのおかげで'], ["and some of that's realizing", '一部は気づいたからだということ'], ['that now you can start saving and investing with less.', '今は少ない額で貯蓄や投資を始められると']] },
+          { ck: [["You don't have to have a lot of money.", 'たくさんのお金はいりません']] },
+          { ck: [['Just put away a little bit.', '少しだけ取っておけばいい']] },
+          { ck: [['Make sure that you’re consistently putting away a little bit,', '少しずつ、続けて取っておくようにしてください'], ['so you get the benefit', 'そうすれば恩恵が得られます'], ['of that time in the market and that compounding.', '市場に長くいることと、複利の']] },
+        ],
+        terms: [
+          { t: 'pay down', m: '（借金を）返して減らす', re: 'pay down' },
+          { t: 'credit card debt', m: 'クレジットカードの借金', re: 'credit card debt' },
+          { t: 'there’s not much point (in) doing', m: '〜してもあまり意味がない', re: 'not much point' },
+          { t: 'significant charges', m: '多額の手数料・利息', re: 'significant charges' },
+          { t: 'Gen Z / millennials / Gen X / boomers', m: 'Z世代／ミレニアル世代／X世代／ベビーブーマー世代', re: 'Gen Z' },
+          { t: 'put away', m: '（お金を）取っておく、貯める', re: 'put away' },
+          { t: 'consistently', m: '一貫して、続けて', re: 'consistently' },
+          { t: 'compounding', m: '複利の効果', re: 'compounding' },
+        ],
+        ja: 'もし自分の子どもたちに言うなら、こうも言うでしょう。それから、高いクレジットカードの借金は返してね、と。高い借金に多額の利息を払っているなら、投資してもあまり意味がないからです。ですから、それはなくしておくこと。そしていったん始められたら、それは素晴らしいことです。実際、世代が進むにつれて、始めるのがどんどん早くなっています。Z世代は20代前半で始めています。ミレニアル世代は20代半ば、私たちX世代は30代前半、ベビーブーマー世代は30代半ばでした。始めるのが早くなっていて、素晴らしいことです。その一部はテクノロジーのおかげで、一部は今は少ない額でも貯蓄や投資を始められると気づいたからだと思います。たくさんのお金はいりません。少しだけ取っておけばいい。少しずつ続けて取っておくようにすれば、市場に長くいることと複利の恩恵が得られます。',
+      },
+      {
+        ts: '26:27', spk: 'AS',
+        gist: '年齢とともに計画が必要になる。住まい、学費、老後のために貯める。特に女性は長生きで、統計的に収入が少ないので、子どものことだけでなく自分の老後のためにも計画しておくことが大切。',
+        sents: [
+          { ck: [['Now as you get older,', 'さて、年を重ねるにつれて'], ["obviously you've got to make a plan.", '当然、計画を立てなければなりません']] },
+          { ck: [["You've got to make sure", '確かめておかなければならない'], ['that you can pay for that first apartment,', '最初の住まいの費用を払えること'], ['that you can start to think about', '考え始められること'], ['paying for the other expensive things in your life.', '人生のほかの高い出費をまかなうことを']] },
+          { ck: [['And, you know,', 'そして'], ['people like me,', '私のような人なら'], ["you've got to make sure", '確かめておかなければならない'], ['that you can pay for those college fees.', '大学の学費を払えることを']] },
+          { ck: [["These are things you've got to save for", 'これらは貯めておかなければならないものです'], ['as well as your retirement.', '老後の資金と同じように']],
+            note: '<b>A as well as B</b> は「Bと同様にAも」。' },
+          { ck: [['And just a shout out', 'そしてひと言エールを'], ['for women in particular,', '特に女性に'], ["given I'm looking at you,", 'あなたを見ながらなので'], ['you know this,', 'あなたもご存じのとおり'], ["you're going to live longer.", '女性のほうが長生きします']],
+            note: '<b>given (that) …</b> は「〜なので、〜を考えると」。相手が女性なので、という軽い前置きです。' },
+          { ck: [['Sadly,', '残念ながら'], ['statistically,', '統計的には'], ['women are going to earn less.', '女性のほうが収入が少ない']] },
+          { ck: [["So it's even more important for women", 'だから女性にとっては、なおさら大切です'], ['not to just think about their children', '子どものことだけを考えるのではなく'], ['and what they need now,', 'そして今必要なものだけを'], ['but to make sure', '確かめておくことが'], ['that women also save for retirement.', '女性も老後のために貯めておくことを']],
+            note: '<b>it\'s important for A not to just … but to …</b> は「Aにとって、〜だけでなく…することが大切だ」。' },
+          { ck: [["Because you're going to be retiring for longer.", 'なぜなら引退後の期間が長くなるから']] },
+          { ck: [['You want to make sure', '確かめておきたいものです'], ['that you’ve thought that through,', 'それをよく考え抜いたか'], ["and you've really got the longevity literacy", 'そして長生きに備える知識を本当に持っているか'], ['to think through,', 'じっくり考えるための'], ['"I\'ve got to make sure that I\'ve got a plan."', '「ちゃんと計画を立てておかなくちゃ」と']] },
+        ],
+        terms: [
+          { t: 'make a plan', m: '計画を立てる', re: 'make a plan' },
+          { t: 'college fees', m: '大学の学費', re: 'college fees' },
+          { t: 'A as well as B', m: 'Bと同様にAも', re: 'as well as' },
+          { t: 'retirement', m: '老後、引退', re: 'retirement' },
+          { t: 'shout out', m: '（〜への）呼びかけ、エール', re: 'shout out' },
+          { t: 'in particular', m: '特に', re: 'in particular' },
+          { t: 'given', m: '〜を考えると', re: 'given' },
+          { t: 'statistically', m: '統計的には', re: 'statistically' },
+          { t: 'think through', m: 'よく考え抜く', re: 'thought that through' },
+          { t: 'longevity literacy', m: '長生きに備えるための知識', re: 'longevity literacy' },
+        ],
+        ja: 'さて、年を重ねるにつれて、当然計画を立てなければなりません。最初の住まいの費用を払えるか、人生のほかの高い出費をまかなうことを考え始められるか、確かめておく必要があります。そして私のような人なら、大学の学費を払えるようにしておかなければなりません。これらは、老後の資金と同じように貯めておかなければならないものです。そして、あなたを見ながらなので、特に女性にひと言エールを送らせてください。ご存じのとおり、女性のほうが長生きします。残念ながら、統計的には女性のほうが収入が少ない。ですから女性にとっては、子どものことや今必要なものだけを考えるのではなく、自分の老後のためにも貯めておくことがなおさら大切です。引退後の期間が長くなるからです。それをよく考え抜き、「ちゃんと計画を立てておかなくちゃ」と考えられるだけの、長生きに備える知識を本当に持っておきたいものです。',
+      },
+      {
+        ts: '27:19', spk: 'WS',
+        gist: 'とても大切な話。今はいろいろな選択肢があるのも素晴らしい。',
+        sents: [
+          { ck: [['Great.', 'いいですね']] },
+          { ck: [['I think', '思います'], ["that's so important.", 'それはとても大切だと']] },
+          { ck: [["And it's so great", 'そして本当に素晴らしいです'], ["that there's so many different options out there now.", '今は世の中にいろいろな選択肢があるのは']],
+            note: '<b>it\'s so great that …</b> の it は that 以下を指します。<b>out there</b> は「世の中に」。' },
+        ],
+        terms: [
+          { t: 'options', m: '選択肢', re: 'options' },
+          { t: 'out there', m: '世の中に、出回って', re: 'out there' },
+        ],
+        ja: 'いいですね。それはとても大切だと思います。今はいろいろな選択肢があるのも、本当に素晴らしいことですね。',
+      },
+    ],
+  },
+  {
+    label: 'パート10', range: '27:26–最後',
+    paras: [
+      {
+        ts: '27:26', spk: 'AS',
+        gist: '大切なのは、始めることと好奇心を持ち続けること。必要なものは変わっていく。学び方はデジタルでも人との会話でもいい。',
+        sents: [
+          { ck: [['But the most important thing', 'でも最も大切なのは'], ['is starting and staying curious.', '始めることと、好奇心を持ち続けることです']] },
+          { ck: [['Because your needs will change.', 'なぜなら必要なものは変わっていくから']] },
+          { ck: [['And whether you learn digitally', 'そしてデジタルで学ぶにせよ'], ['or you learn talking to people,', '人と話して学ぶにせよ'], ["it doesn't matter.", 'どちらでもかまいません']] },
+          { ck: [['Stay curious,', '好奇心を持ち続け'], ['stay engaged', '関わり続け'], ['and start.', 'そして始めてください']] },
+        ],
+        terms: [
+          { t: 'stay curious', m: '好奇心を持ち続ける', re: 'staying curious' },
+          { t: 'needs', m: '必要なもの、ニーズ', re: 'needs' },
+          { t: 'it doesn’t matter', m: 'どちらでもかまわない', re: "doesn't matter" },
+          { t: 'stay engaged', m: '関わり続ける', re: 'stay engaged' },
+        ],
+        ja: 'でも最も大切なのは、始めること、そして好奇心を持ち続けることです。必要なものは変わっていくからです。デジタルで学んでも、人と話して学んでも、どちらでもかまいません。好奇心を持ち続け、関わり続け、そして始めてください。',
+      },
+      {
+        ts: '27:43', spk: 'WS',
+        gist: '脳の健康についても同じことを勧めている。睡眠やお酒が脳にどう影響するか、運動で違いを感じるか、自分で試してみる好奇心が大切。お金の健康と脳と体の健康には、同じ道具が役立つ。',
+        sents: [
+          { ck: [["You know, that's so funny", '面白いですね'], ["because that's exactly the recommendation", 'それはまさに私が勧めていることだから'], ['that I give about brain health.', '脳の健康について']],
+            note: '<b>funny</b> はここでは「おかしい」ではなく「不思議だ、面白い偶然だ」の意味です。' },
+          { ck: [['Stay curious about your brain health.', '自分の脳の健康に好奇心を持ち続けること']] },
+          { ck: [['Stay curious about:', '〜に好奇心を持ち続けること'], ['What is the effect of sleep on my brain?', '睡眠は私の脳にどんな影響があるのか']] },
+          { ck: [['What is the effect of alcohol', 'お酒はどんな影響があるのか'], ['on my sleep and then on my brain?', '私の睡眠に、そして脳に']] },
+          { ck: [['If I do the movement', 'もし運動をしたら'], ['that Wendy says to do,', 'ウェンディが勧める'], ['do I feel a difference?', '違いを感じるだろうか']],
+            note: 'Wendy は話し手自身の名前です。自分のことを外から見た言い方で、ユーモアを込めています。' },
+          { ck: [['And you will.', 'そして、きっと感じます']] },
+          { ck: [['And that kind of self-experimentation', 'そういう自分で試してみることは'], ['is equally true for your brain and body health', '脳と体の健康にも同じように当てはまる'], ['as it is for your financial health,', 'お金の健康に当てはまるのと'], ['it seems.', 'ようですね']],
+            note: '<b>equally … as …</b> は「…と同じように〜」。' },
+          { ck: [['And that key', 'そしてその鍵は'], ['is really the curiosity of,', 'まさにこういう好奇心です'], ['maybe I could ask this person.', 'この人に聞いてみようかな、という']] },
+          { ck: [['Maybe I could explore,', '調べてみようかな'], ['not just sleep and movement', '睡眠や運動だけでなく'], ['but maybe meditation is good.', 'もしかしたら瞑想もいいかもしれない']],
+            note: '心の声をそのまま並べているので、文の形が崩れています（睡眠や運動だけでなく、瞑想も調べてみようかな）。' },
+          { ck: [['Is there information about that?', 'それについての情報はあるかな']] },
+          { ck: [['Yes,', 'ええ'], ['meditation is wonderful.', '瞑想は素晴らしいです']] },
+          { ck: [['It’s a destressing tool.', 'ストレスを和らげる道具です']] },
+          { ck: [["But it's so interesting to see", 'でも本当に興味深いです'], ['that the same tools', '同じ道具が'], ['that are so valuable for good financial health', 'お金の健康にとても役立つ'], ['are also so valuable', 'とても役立つのを見るのは'], ['for good brain and body health as well.', '脳と体の健康にも']],
+            note: '<b>it\'s so interesting to see that …</b> の it は to see 以下を指します。<b>the same tools that are so valuable for …</b> までが主語で、are also so valuable が述語です。' },
+        ],
+        terms: [
+          { t: 'funny', m: '不思議な、面白い偶然の', re: 'funny' },
+          { t: 'recommendation', m: '勧め、助言', re: 'recommendation' },
+          { t: 'effect of A on B', m: 'AがBに与える影響', re: 'effect of' },
+          { t: 'feel a difference', m: '違いを感じる', re: 'feel a difference' },
+          { t: 'self-experimentation', m: '自分で試してみること', re: 'self-experimentation' },
+          { t: 'equally', m: '同じように', re: 'equally' },
+          { t: 'explore', m: '調べる、探ってみる', re: 'explore' },
+          { t: 'meditation', m: '瞑想', re: 'meditation' },
+          { t: 'destressing', m: 'ストレスを和らげる', re: 'destressing' },
+          { t: 'valuable', m: '役立つ、価値がある', re: 'valuable' },
+        ],
+        ja: '面白いですね。それはまさに、私が脳の健康について勧めていることなんです。自分の脳の健康に好奇心を持ち続けること。睡眠は私の脳にどんな影響があるのか。お酒は睡眠に、そして脳にどんな影響があるのか。ウェンディが勧める運動をしたら、違いを感じるだろうか。そして、きっと感じるはずです。そういう自分で試してみる姿勢は、お金の健康と同じように、脳と体の健康にも当てはまるようですね。その鍵はまさに好奇心です。この人に聞いてみようかな。睡眠や運動だけでなく、瞑想もいいかもしれないから調べてみようかな。それについての情報はあるかな、と。ええ、瞑想は素晴らしいです。ストレスを和らげる道具です。でも、お金の健康にとても役立つのと同じ道具が、脳と体の健康にもとても役立つのを見るのは、本当に興味深いですね。',
+      },
+      {
+        ts: '28:55', spk: 'AS',
+        gist: '好奇心を持つほど知識が増え、不確かさと不安が減る。',
+        sents: [
+          { ck: [['And I think', 'そして思うのは'], ['it ameliorates that uncertainty.', 'それが不確かさを和らげるということです']] },
+          { ck: [['You know,', 'ほら'], ['you talk about anxiety and uncertainty.', 'あなたは不安と不確かさについて話していますね']] },
+          { ck: [['The more curious you are,', '好奇心を持てば持つほど'], ['the more you know,', '知識が増え'], ['the less you feel that uncertainty', '不確かさを感じなくなり'], ['and the less anxiety I think you feel.', 'そして不安も感じなくなると思います']],
+            note: '「the＋比較級」が4つ続いています。好奇心が増す → 知識が増す → 不確かさが減る → 不安が減る、と前から順に読みます。' },
+        ],
+        terms: [
+          { t: 'ameliorate', m: '改善する、和らげる', re: 'ameliorates' },
+          { t: 'uncertainty', m: '不確かさ、先の見えなさ', re: 'uncertainty' },
+        ],
+        ja: 'そしてそれが、不確かさを和らげてくれると思います。あなたは不安と不確かさについて話していますね。好奇心を持てば持つほど知識が増え、不確かさを感じなくなり、不安も感じなくなると思います。',
+      },
+      {
+        ts: '29:09', spk: 'WS',
+        gist: '対談のお礼。お金の不安がかなり減った。',
+        sents: [
+          { ck: [['Thank you so much', '本当にありがとうございました'], ['for this conversation.', 'この対談を']] },
+          { ck: [['I’ve learned so much,', 'たくさん学びましたし'], ['and my anxiety level around finances', 'お金にまつわる私の不安の度合いは'], ['has significantly decreased.', 'かなり下がりました']] },
+          { ck: [['What a pleasure', 'なんてうれしいことでしょう'], ['to speak to you today.', '今日あなたとお話しできて']] },
+        ],
+        terms: [
+          { t: 'around', m: '〜にまつわる、〜に関する', re: 'around finances' },
+          { t: 'significantly', m: 'かなり、大きく', re: 'significantly' },
+          { t: 'What a pleasure', m: 'なんてうれしいことか', re: 'What a pleasure' },
+        ],
+        ja: 'この対談を本当にありがとうございました。たくさん学びましたし、お金にまつわる不安もかなり減りました。今日お話しできて本当にうれしかったです。',
+      },
+      {
+        ts: '29:19', spk: 'AS',
+        gist: '締めくくり。もっと運動して「大きくふっくらした脳」を目指したい。',
+        sents: [
+          { ck: [["It's been such a pleasure,", '本当に楽しかったです'], ["I can't tell you.", '言葉にできないくらい']],
+            note: '<b>I can\'t tell you</b> は「言葉では言い表せないほど」という強調の決まり文句です。' },
+          { ck: [['I will be going out,', '外に出かけて'], ['I will be exercising more', 'もっと運動して'], ['and moving towards that big, fat, fluffy brain.', 'あの大きくてふっくら、ふわふわの脳を目指します']] },
+          { ck: [['It sounds fantastic.', '素晴らしそうですね']] },
+          { ck: [['Thank you so much.', '本当にありがとうございました']] },
+        ],
+        terms: [
+          { t: 'I can’t tell you', m: '言葉にできないほど', re: "can't tell you" },
+          { t: 'move towards', m: '〜に向かって進む', re: 'moving towards' },
+          { t: 'fluffy', m: 'ふわふわの', re: 'fluffy' },
+        ],
+        ja: '言葉にできないくらい、本当に楽しかったです。外に出かけて、もっと運動して、あの大きくてふっくら、ふわふわの脳を目指します。素晴らしそうですね。本当にありがとうございました。',
+      },
+    ],
+  },
+];
+
+/* ---------- state (this browser only) ---------- */
+const KEY = 'goodlife-prep.v2';
+const LS = {
+  get() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } },
+  set(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} },
+};
+const st = Object.assign({ view: 'chunk', hideJa: false, part: 0 }, LS.get());
+if (!(st.part >= 0 && st.part < PARTS.length)) st.part = 0;
+const save = () => LS.set({ view: st.view, hideJa: st.hideJa, part: st.part });
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/* underline glossary terms inside one chunk of English (chunk view only) */
+function markTerms(text, terms, prefix) {
+  const hits = [];
+  terms.forEach((t, ti) => {
+    const re = new RegExp('\\b' + reEsc(t.re) + '\\b', 'gi');
+    let m;
+    while ((m = re.exec(text))) hits.push({ a: m.index, b: m.index + m[0].length, ti });
+  });
+  hits.sort((x, y) => x.a - y.a || (y.b - y.a) - (x.b - x.a));
+  let out = '', pos = 0;
+  for (const h of hits) {
+    if (h.a < pos) continue;
+    out += esc(text.slice(pos, h.a));
+    out += '<span class="term" data-term="' + prefix + '-' + h.ti + '" role="button" tabindex="0">' + esc(text.slice(h.a, h.b)) + '</span>';
+    pos = h.b;
+  }
+  return out + esc(text.slice(pos));
+}
+
+function paraHead(p) {
+  return '<div class="para-head"><span class="ts">' + p.ts + '</span><span class="spk ' + (p.spk === 'WS' ? 'ws' : 'as') + '">' + p.spk + '</span></div>';
+}
+function chunkPara(p, key) {
+  const sents = p.sents.map(s =>
+    '<div class="sent"><div class="chunks">' + s.ck.map(c =>
+      '<span class="ck" tabindex="0"><span class="en">' + markTerms(c[0], p.terms, key) + '</span><span class="ja">' + esc(c[1]) + '</span></span>').join('') + '</div>' +
+      (s.note ? '<p class="note">' + s.note + '</p>' : '') + '</div>').join('');
+  const terms = p.terms.length ? '<details class="tr terms-box"><summary>語句（' + p.terms.length + '）</summary><ul class="term-list">' + p.terms.map(t =>
+    '<li class="term-item"><span class="t">' + esc(t.t) + '</span><span class="m">' + esc(t.m) + '</span></li>').join('') + '</ul></details>' : '';
+  return paraHead(p) +
+    '<p class="gist"><small>要旨</small>' + esc(p.gist) + '</p>' +
+    '<div class="sents">' + sents + '</div>' + terms +
+    '<details class="tr"><summary>自然な日本語訳（確認用）</summary><p>' + esc(p.ja) + '</p></details>';
+}
+function plainPara(p) {
+  return paraHead(p) + '<p class="plain">' + esc(p.sents.map(s => s.ck.map(c => c[0]).join(' ')).join(' ')) + '</p>';
+}
+
+function render() {
+  const part = PARTS[st.part];
+  $('#main').innerHTML = '<h2 class="part-title">' + part.label + '　' + part.range + '</h2>' + part.paras.map((p, pi) => {
+    const key = st.part + '-' + pi;
+    return '<section class="para" id="p' + key + '">' + (st.view === 'chunk' ? chunkPara(p, key) : plainPara(p)) + '</section>';
+  }).join('');
+  $('#nextText').textContent = '通し読みでこのパートが前から読めるようになったら、TEDの音声で ' + part.range + ' をスクリプトなしで聞きます。聞きながら意味が追えない箇所があれば、その段落のかたまり読みに戻ります。';
+  syncBar();
+}
+
+$('#partSel').innerHTML = PARTS.map((p, i) => '<option value="' + i + '">' + p.label + '　' + p.range + '</option>').join('');
+$('#partSel').addEventListener('change', e => switchPart(+e.target.value));
+function syncBar() {
+  $('#partSel').value = String(st.part);
+  $('#pnPrev').disabled = st.part === 0;
+  $('#pnNext').disabled = st.part === PARTS.length - 1;
+  const nx = PARTS[st.part + 1];
+  $('#nextPart').hidden = !nx;
+  if (nx) $('#nextPart').textContent = '次のパートへ：' + nx.label + '　' + nx.range;
+  $$('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === st.view ? 'true' : 'false'));
+  const hj = $('#hideJa');
+  hj.setAttribute('aria-pressed', st.hideJa ? 'true' : 'false');
+  hj.hidden = st.view !== 'chunk';
+  document.body.classList.toggle('hide-ja', st.hideJa && st.view === 'chunk');
+  $('#closeAll').hidden = !(st.hideJa && st.view === 'chunk' && document.querySelector('.ck.open'));
+}
+
+/* keep the same paragraph in place when switching views */
+function barBottom() { return $('.bar').getBoundingClientRect().bottom; }
+function topPara() {
+  const b = barBottom();
+  for (const el of $$('.para')) { const r = el.getBoundingClientRect(); if (r.bottom > b + 12) return { id: el.id, off: r.top - b }; }
+  return null;
+}
+function switchView(view) {
+  if (view === st.view) return;
+  const a = topPara();
+  st.view = view; save(); hidePop(); render();
+  if (!a) return;
+  const el = document.getElementById(a.id); if (!el) return;
+  const want = barBottom() + Math.max(8, a.off);
+  window.scrollBy(0, el.getBoundingClientRect().top - want);
+}
+function switchPart(i) {
+  if (!(i >= 0 && i < PARTS.length) || i === st.part) return;
+  st.part = i; save(); hidePop(); render();
+  const main = $('#main');
+  const y = window.scrollY + main.getBoundingClientRect().top - $('.bar').offsetHeight - 4;
+  if (window.scrollY > y) window.scrollTo(0, y);
+}
+
+/* ---------- popover ---------- */
+function showTerm(id) {
+  const [pt, pi, ti] = id.split('-').map(Number);
+  const t = PARTS[pt].paras[pi].terms[ti];
+  $('#popT').textContent = t.t;
+  $('#popM').textContent = t.m;
+  $('#pop').hidden = false;
+}
+function hidePop() { $('#pop').hidden = true; }
+$('#popX').addEventListener('click', hidePop);
+
+/* ---------- events ---------- */
+document.addEventListener('click', e => {
+  const term = e.target.closest('[data-term]');
+  if (term) { e.stopPropagation(); showTerm(term.dataset.term); return; }
+  if (!e.target.closest('#pop')) hidePop();
+
+  const sb = e.target.closest('[data-step]');
+  if (sb) { switchPart(st.part + (+sb.dataset.step)); return; }
+  const v = e.target.closest('[data-view]');
+  if (v) { switchView(v.dataset.view); return; }
+
+  if (e.target.closest('#hideJa')) { st.hideJa = !st.hideJa; save(); $$('.ck.open').forEach(c => c.classList.remove('open')); syncBar(); return; }
+  if (e.target.closest('#closeAll')) { $$('.ck.open').forEach(c => c.classList.remove('open')); syncBar(); return; }
+
+  const ck = e.target.closest('.ck');
+  if (ck && st.hideJa) { ck.classList.toggle('open'); syncBar(); }
+});
+document.addEventListener('keydown', e => {
+  const t = e.target;
+  if ((e.key === 'Enter' || e.key === ' ') && t.matches && t.matches('[data-term]')) { e.preventDefault(); showTerm(t.dataset.term); return; }
+  if ((e.key === 'Enter' || e.key === ' ') && t.classList && t.classList.contains('ck') && st.hideJa) { e.preventDefault(); t.classList.toggle('open'); syncBar(); return; }
+  if (e.key === 'Escape') hidePop();
+});
+
+render();
+})();
+</script>
+
+</body></html>
